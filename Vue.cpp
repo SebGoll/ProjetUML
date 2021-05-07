@@ -21,13 +21,16 @@ void mainMenu(){
         case 1:
             cout<< "1-Voir la qualite de l'air \n"
                    "2-Consulter les capteurs\n"
-                   "3-Consulter les purificateurs"<<endl;
+                   "3-Consulter les purificateurs\n"
+                   "4-Quitter"<<endl;
         case 2:
             cout<< "1-Voir la qualite de l'air \n"
-                   "2-Consulter son compte"<<endl;
+                   "2-Consulter son compte\n"
+                   "3-Quitter"<<endl;
         case 3:
             cout<< "1-Voir la qualite de l'air \n"
-                   "2-Consulter ses purificateurs"<<endl;
+                   "2-Consulter ses purificateurs\n"
+                   "3-Quitter"<<endl;
 
     }
 
