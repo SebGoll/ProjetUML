@@ -68,6 +68,9 @@ int main() {
             cout <<"appel a model : liste des capteurs"<<endl;
             cout <<"appel a view : sous menu choix capteur"<<endl;
             cin>>lecture;
+            if(lecture=="aucun"){
+                continue;
+            }
             idcapteur=lecture;
             cout <<"appel a view : sous menu analyse capteur"<<endl;
             cin>>lecture;
@@ -93,6 +96,9 @@ int main() {
             cout <<"appel a model : liste des purificateurs"<<endl;
             cout <<"appel a view : sous menu choix purificateur"<<endl;
             cin>>lecture;
+            if(lecture=="aucun"){
+                continue;
+            }
             idpurificateur=lecture;
             cout<<"appel a model :calcul rayon d'influence avec idpurificateur= "<< idpurificateur << endl;
         }
