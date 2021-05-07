@@ -3,7 +3,7 @@
 /*Constructeurs*/
 UtilisateurPrive::UtilisateurPrive() {}
 
-UtilisateurPrive::UtilisateurPrive(const long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp)
+UtilisateurPrive::UtilisateurPrive(const unsigned long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp)
         : Utilisateur(unId, unNom, unPrenom,unMail,unMdp) {}
 
 /*Destructeur*/

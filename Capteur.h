@@ -5,12 +5,12 @@
 //Interfaces itilisées
 #include <list>
 #include "Mesure.h"
+#include "UtilisateurPrive.h"
 #include <iostream>
 #include <string>
 using namespace std;
 //Constantes
 //Types
-typedef int UtilisateurPrive;
 
 //-------------
 //Role de la classe <Capteur>

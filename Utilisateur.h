@@ -1,3 +1,5 @@
+//Interface de la classe <Utilisateur> (Utilisateur.h)
+
 #ifndef PROJETUML_UTILISATEUR_H
 #define PROJETUML_UTILISATEUR_H
 
@@ -8,21 +10,10 @@ using namespace std;
 class Utilisateur {
 
 public:
-    //Méthodes publiques
-    long getId() const;
-    void setId(long id);
-    const string &getNom() const;
-    void setNom(const string &nom);
-    const string &getPrenom() const;
-    void setPrenom(const string &prenom);
-    const string &getMail() const;
-    void setMail(const string &mail);
-    const string &getMdp() const;
-    void setMdp(const string &mdp);
 
     //Constructeur(s)
     Utilisateur();
-    Utilisateur(const long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp);
+    Utilisateur(const unsigned long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp);
 
     //Destructeur
     virtual ~Utilisateur();
@@ -30,7 +21,7 @@ public:
 
 private:
     //Attributs privés
-    long id;
+    unsigned long id;
     string nom;
     string prenom;
     string mail;
