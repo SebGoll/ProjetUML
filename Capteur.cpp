@@ -8,6 +8,20 @@ Capteur::Capteur(){
 
 }
 
-Capteur::Capteur(long id, float latitude, float longitude) : id(id), latitude(latitude), longitude(longitude) {
+Capteur::~Capteur() {
 
 }
+
+Capteur::Capteur(unsigned long id, float latitude, float longitude) : id(id), latitude(latitude), longitude(longitude) {
+
+}
+
+ostream &operator<<(ostream &flux, const Capteur &c) {
+    string s = "Capteur n°";
+    flux <<  "Capteur n°" << c.id<<"\tLat="<<c.latitude<<"\tLong="<<c.longitude<<"\n";
+}
+
+void Capteur::ajouterMesure(Mesure *m) {
+    this->mesures.push_back(m);
+}
+

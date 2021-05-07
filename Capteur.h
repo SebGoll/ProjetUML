@@ -4,11 +4,13 @@
 
 //Interfaces itilisées
 #include <list>
+#include "Mesure.h"
+#include <iostream>
+#include <string>
 using namespace std;
 //Constantes
 //Types
 typedef int UtilisateurPrive;
-typedef int Mesure;
 
 //-------------
 //Role de la classe <Capteur>
@@ -18,9 +20,18 @@ class Capteur {
     //PUBLIC
 public:
 
+    //Méthodes publiques
+    void ajouterMesure(Mesure *m);
+
+    //Surcharge d'opérateurs
+    friend ostream & operator << (ostream & flux, const Capteur & c);
+
+    //Constructeurs destructeurs
     Capteur();
 
-    Capteur(long id, float latitude, float longitude);
+    Capteur(unsigned long id, float latitude, float longitude);
+
+    virtual ~Capteur();
 
 
     //PRIVE
@@ -33,7 +44,7 @@ protected:
     float longitude;
     UtilisateurPrive proprietaire;
     bool fiable;
-    list<Mesure> mesures;
+    list<Mesure*> mesures;
 };
 
 
