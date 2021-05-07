@@ -4,7 +4,7 @@
 #define PROJETUML_UTILISATEURPRIVE_H
 #include <iostream>
 #include <string>
-#import "Utilisateur.h"
+#include "Utilisateur.h"
 using namespace std;
 
 class UtilisateurPrive: public Utilisateur {

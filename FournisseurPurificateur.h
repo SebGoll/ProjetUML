@@ -3,7 +3,7 @@
 #ifndef PROJETUML_FOURNISSEURPURIFICATEUR_H
 #define PROJETUML_FOURNISSEURPURIFICATEUR_H
 #include <iostream>
-#import "Utilisateur.h";
+#include "Utilisateur.h"
 using namespace std;
 
 class FournisseurPurificateur : public Utilisateur {
