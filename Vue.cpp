@@ -3,6 +3,7 @@
     @file Vue.cpp
     @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna (B3201-B3209)
 */
+
 #include <iostream>
 using namespace std;
 
