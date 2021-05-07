@@ -26,27 +26,30 @@ int main() {
     string datedebut,datefin;
     int optionquitter = (droits == 1) ? 4 : 3;
     while (val != optionquitter) {
-        cout << "appel a view : menu principal" << endl;
-
+        //cout << "appel a view : menu principal" << endl;
+        mainMenu();
         cin >> lecture;
         while (lecture.length() != 1 || !(lecture[0] >= '1' && lecture[0] <= '4')) {
-            cout << "appel a view : menu principal" << endl;
+            //cout << "appel a view : menu principal" << endl;
+            mainMenu();
             cin >> lecture;
         }
         val = stoi(lecture);
         if (val == 1) {
 
-
-            cout << "appel a view : sous menu qualite d'air" << endl;
+            //cout << "appel a view : sous menu qualite d'air" << endl;
+            menuQualiteAir();
             cin >> lecture;
             while (lecture.length() != 1 || !(lecture[0] >= '1' && lecture[0] <= '4')) {
-                cout << "appel a view : sous menu qualite d'air" << endl;
+                //cout << "appel a view : sous menu qualite d'air" << endl;
+                menuQualiteAir();
                 cin >> lecture;
             }
             val = stoi(lecture);
             if (val == 1) {
 
-                cout << "appel a view : sous menu choix coord point" << endl;
+                //cout << "appel a view : sous menu choix coord point" << endl;
+                menuQualiteAirPoint();
                 cin >> lecture;
                 latitude = stod(lecture);
                 cin >> lecture;
@@ -61,7 +64,8 @@ int main() {
 
             } else if (val == 2) {
 
-                cout << "appel a view : sous menu choix coord zone" << endl;
+                //cout << "appel a view : sous menu choix coord zone" << endl;
+                menuQualiteAirZone();
                 cin >> lecture;
                 latitude = stod(lecture);
                 cin >> lecture;
@@ -79,16 +83,20 @@ int main() {
 
         } else if (val == 2 && droits==1) {
             cout << "appel a model : liste des capteurs" << endl;
-            cout << "appel a view : sous menu choix capteur" << endl;
+            //cout << "appel a view : sous menu choix capteur" << endl;
+            menuConsulterCapteur(/*Liste des Capteurs*/);
             cin >> lecture;
             if (lecture == "aucun") {
                 continue;
             }
             idcapteur = lecture;
-            cout << "appel a view : sous menu analyse capteur" << endl;
+            //cout << "appel a view : sous menu analyse capteur" << endl;
+            menuConsulterDetailsCapteur();
+
             cin >> lecture;
             while (lecture.length() != 1 || !(lecture[0] >= '1' && lecture[0] <= '2')) {
-                cout << "appel a view : sous menu analyse capteur" << endl;
+                //cout << "appel a view : sous menu analyse capteur" << endl;
+                menuConsulterDetailsCapteur();
                 cin >> lecture;
             }
             val = stoi(lecture);
@@ -117,7 +125,8 @@ int main() {
 
         } else if (val == 3 && droits==1) {
             cout << "appel a model : liste des purificateurs" << endl;
-            cout << "appel a view : sous menu choix purificateur" << endl;
+            //cout << "appel a view : sous menu choix purificateur" << endl;
+            menuConsulterPurificateurs(/*Liste Des Purificateurs*/);
             cin >> lecture;
             if (lecture == "aucun") {
                 continue;

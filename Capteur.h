@@ -5,12 +5,12 @@
 //Interfaces itilisées
 #include <list>
 #include "Mesure.h"
+#include "UtilisateurPrive.h"
 #include <iostream>
 #include <string>
 using namespace std;
 //Constantes
 //Types
-typedef int UtilisateurPrive;
 
 //-------------
 //Role de la classe <Capteur>
@@ -22,6 +22,14 @@ public:
 
     //Méthodes publiques
     void ajouterMesure(Mesure *m);
+
+    UtilisateurPrive getProprietaire() const;
+
+    void setProprietaire(UtilisateurPrive proprietaire);
+
+    bool isFiable() const;
+
+    void setFiable(bool fiable);
 
     //Surcharge d'opérateurs
     friend ostream & operator << (ostream & flux, const Capteur & c);
