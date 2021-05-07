@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Vue.h"
+
 using namespace std;
 int droits;
 
@@ -23,7 +24,7 @@ int main() {
     double rayon;
     string idcapteur;
     string idpurificateur;
-    string datedebut,datefin;
+    string datedebut, datefin;
     int optionquitter = (droits == 1) ? 4 : 3;
     while (val != optionquitter) {
         mainMenu();
@@ -50,10 +51,11 @@ int main() {
                 cin >> lecture;
                 longitude = stod(lecture);
                 cin >> lecture;
-                datedebut=lecture;
+                datedebut = lecture;
                 cin >> lecture;
-                datefin=lecture;
-                cout << "appel a model : calcul point avec lat= " << latitude << " et long=" << longitude << " de "<<datedebut <<" a "<< datefin<< endl;
+                datefin = lecture;
+                cout << "appel a model : calcul point avec lat= " << latitude << " et long=" << longitude << " de "
+                     << datedebut << " a " << datefin << endl;
                 val = 1;
 
 
@@ -67,15 +69,15 @@ int main() {
                 cin >> lecture;
                 rayon = stod(lecture);
                 cin >> lecture;
-                datedebut=lecture;
+                datedebut = lecture;
                 cin >> lecture;
-                datefin=lecture;
+                datefin = lecture;
                 cout << "appel a model : calcul zone avec lat= " << latitude << "  ,long= " << longitude
-                     << " et rayon= " << rayon << " de "<<datedebut <<" a "<< datefin<<  endl;
+                     << " et rayon= " << rayon << " de " << datedebut << " a " << datefin << endl;
                 val = 1;
             }
 
-        } else if (val == 2 && droits==1) {
+        } else if (val == 2 && droits == 1) {
             cout << "appel a model : liste des capteurs" << endl;
             menuConsulterCapteur(/*Liste des Capteurs*/);
             cin >> lecture;
@@ -94,10 +96,11 @@ int main() {
             if (val == 1) {
                 menuDemandeDates();
                 cin >> lecture;
-                datedebut=lecture;
+                datedebut = lecture;
                 cin >> lecture;
-                datefin=lecture;
-                cout << "appel a model : calcul similarité avec idcapteur= " << idcapteur << " de "<<datedebut <<" a "<< datefin << endl;
+                datefin = lecture;
+                cout << "appel a model : calcul similarité avec idcapteur= " << idcapteur << " de " << datedebut
+                     << " a " << datefin << endl;
                 val = 2;
 
 
@@ -106,15 +109,15 @@ int main() {
                 cout << "appel a model : calcul defectueux avec idcapteur= " << idcapteur << endl;
                 val = 2;
             }
-        } else if (val == 2 && droits==2) {
+        } else if (val == 2 && droits == 2) {
             cout << "appel a view : consulter son compte (pas du tout implementer)" << endl;
 
-        } else if (val == 2 && droits==3) {
+        } else if (val == 2 && droits == 3) {
 
             cout << "appel a view : consulter ses purificateurs (pas du tout implementer)" << endl;
 
 
-        } else if (val == 3 && droits==1) {
+        } else if (val == 3 && droits == 1) {
             cout << "appel a model : liste des purificateurs" << endl;
             menuConsulterPurificateurs(/*Liste Des Purificateurs*/);
             cin >> lecture;
