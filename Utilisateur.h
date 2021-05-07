@@ -11,6 +11,9 @@ class Utilisateur {
 
 public:
 
+    //Surcharge d'opérateurs
+    friend ostream & operator << (ostream & flux, const Utilisateur &u);
+
     //Constructeur(s)
     Utilisateur();
     Utilisateur(const unsigned long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp);
