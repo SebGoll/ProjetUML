@@ -2,18 +2,17 @@
 #define PROJETUML_VUE_H
 
 #include "Capteur.h"
+#include "Purificateur.h"
 
 extern int droits;
 
 void mainMenu();
 void menuQualiteAir();
-void menuConsulterCapteur(list<Capteur> listCapt);
+void menuConsulterCapteur();
 void menuConsulterDetailsCapteur();
 void menuQualiteAirPoint();
 void menuQualiteAirZone();
-
-
-void menuConsulterPurificateurs(list<Purificateur> listPuri);
+void menuConsulterPurificateurs();
 
 
 

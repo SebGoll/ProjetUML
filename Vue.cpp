@@ -1,3 +1,8 @@
+/**
+    Gère l'affichage des menus du programme
+    @file Vue.cpp
+    @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna (B3201-B3209)
+*/
 #include <iostream>
 using namespace std;
 
@@ -40,11 +45,7 @@ void menuQualiteAirZone(){
     cout<<"Inserer la longitude, la latitude, le rayon de la zone (en ..), la date de debut et la date de fin:"<<endl;
 }
 
-void menuConsulterCapteur(list<Capteur> listCapt){
-    cout<<"Liste des Capteurs: "<<endl;
-    for (Capteur c : listCapt){
-        cout<< c <<endl;
-    }
+void menuConsulterCapteur(){
     cout<<"Entrez le numero du capteur:"<<endl;
 }
 
@@ -60,11 +61,7 @@ void menuConsulterCapteursSimilaires(Capteur c){
     /*Algo capteur similaires*/
 }
 
-void menuConsulterPurificateurs(list<Purificateur> listPuri){
-    cout<<"Liste des Purificateurs: "<<endl;
-    for (Purificateur p : listPuri){
-        cout<< p <<endl;
-    }
+void menuConsulterPurificateurs(){
     cout<<"Entrez le numero du purificateur:"<<endl;
 }
 /*
