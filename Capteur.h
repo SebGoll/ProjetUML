@@ -4,11 +4,11 @@
 
 //Interfaces itilisées
 #include <list>
+#include "Mesure.h"
 using namespace std;
 //Constantes
 //Types
 typedef int UtilisateurPrive;
-typedef int Mesure;
 
 //-------------
 //Role de la classe <Capteur>
@@ -20,7 +20,7 @@ public:
 
     Capteur();
 
-    Capteur(long id, float latitude, float longitude);
+    Capteur(unsigned long id, float latitude, float longitude);
 
 
     //PRIVE
