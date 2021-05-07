@@ -23,6 +23,7 @@ int main() {
     double rayon;
     string idcapteur;
     string idpurificateur;
+    string datedebut,datefin;
     int optionquitter = (droits == 1) ? 4 : 3;
     while (val != optionquitter) {
         cout << "appel a view : menu principal" << endl;
@@ -50,7 +51,11 @@ int main() {
                 latitude = stod(lecture);
                 cin >> lecture;
                 longitude = stod(lecture);
-                cout << "appel a model : calcul point avec lat= " << latitude << " et long=" << longitude << endl;
+                cin >> lecture;
+                datedebut=lecture;
+                cin >> lecture;
+                datefin=lecture;
+                cout << "appel a model : calcul point avec lat= " << latitude << " et long=" << longitude << " de "<<datedebut <<" a "<< datefin<< endl;
                 val = 1;
 
 
@@ -63,8 +68,12 @@ int main() {
                 longitude = stod(lecture);
                 cin >> lecture;
                 rayon = stod(lecture);
+                cin >> lecture;
+                datedebut=lecture;
+                cin >> lecture;
+                datefin=lecture;
                 cout << "appel a model : calcul zone avec lat= " << latitude << "  ,long= " << longitude
-                     << " et rayon= " << rayon << endl;
+                     << " et rayon= " << rayon << " de "<<datedebut <<" a "<< datefin<<  endl;
                 val = 1;
             }
 
@@ -84,9 +93,12 @@ int main() {
             }
             val = stoi(lecture);
             if (val == 1) {
-
-
-                cout << "appel a model : calcul similarité avec idcapteur= " << idcapteur << endl;
+                cout << "appel a view : sous menu demande periode" << endl;
+                cin >> lecture;
+                datedebut=lecture;
+                cin >> lecture;
+                datefin=lecture;
+                cout << "appel a model : calcul similarité avec idcapteur= " << idcapteur << " de "<<datedebut <<" a "<< datefin << endl;
                 val = 2;
 
 
