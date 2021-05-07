@@ -1,4 +1,11 @@
+/**
+    Gère l'affichage des menus du programme
+    @file Vue.cpp
+    @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna (B3201-B3209)
+*/
+
 #include <iostream>
+
 using namespace std;
 
 #include "Vue.h"
@@ -9,63 +16,77 @@ using namespace std;
 
 
 
-void mainMenu(){
+void mainMenu() {
 
-    cout<< "Menu"<<endl;
+    cout << "Menu" << endl;
     switch (droits) {
         case 1:
-            cout<< "1-Voir la qualite de l'air \n"
-                   "2-Consulter les capteurs\n"
-                   "3-Consulter les purificateurs"<<endl;
+
+            cout << "1-Voir la qualite de l'air \n"
+                    "2-Consulter les capteurs\n"
+                    "3-Consulter les purificateurs\n"
+                    "4-Quitter" << endl;
+            break;
+
         case 2:
-            cout<< "1-Voir la qualite de l'air \n"
-                   "2-Consulter son compte"<<endl;
+
+            cout << "1-Voir la qualite de l'air \n"
+                    "2-Consulter son compte\n"
+                    "3-Quitter" << endl;
+            break;
+
         case 3:
-            cout<< "1-Voir la qualite de l'air \n"
-                   "2-Consulter ses purificateurs"<<endl;
+
+            cout << "1-Voir la qualite de l'air \n"
+                    "2-Consulter ses purificateurs\n"
+                    "3-Quitter" << endl;
+            break;
+
 
     }
 
 }
 
-void menuQualiteAir(){
-    cout<<"1.1-Voir la qualité de l'air en un point\n"
-          "2.2-Voir la qualité de l'air en une zone"<<endl;
+void menuQualiteAir() {
+    cout << "1.1-Voir la qualite de l'air en un point\n"
+            "2.2-Voir la qualite de l'air en une zone" << endl;
 }
 
-void menuQualiteAirPoint(){
-    cout<<"Inserer la longitude, la latitude, la date de debut et la date de fin:"<<endl;
-}
-void menuQualiteAirZone(){
-    cout<<"Inserer la longitude, la latitude, le rayon de la zone (en ..), la date de debut et la date de fin:"<<endl;
-}
-
-void menuConsulterCapteur(list<Capteur> listCapt){
-    cout<<"Liste des Capteurs: "<<endl;
-    for (Capteur c : listCapt){
-        cout<< c <<endl;
-    }
-    cout<<"Entrez le numero du capteur:"<<endl;
+void menuQualiteAirPoint() {
+    cout
+            << "Inserer la longitude et la latitude, ainsi que la date de debut et la date de fin de la periode a moyenner:"
+            << endl;
 }
 
-
-
-void menuConsulterDetailsCapteur(){
-    cout<<"Menu"<<endl;
-    cout<<"2.1-Consulter les capteurs similaires\n"
-          "2.2-Voir si un capteur est défectueux"<<endl;
+void menuQualiteAirZone() {
+    cout
+            << "Inserer la longitude, la latitude et le rayon de la zone (en ..), ainsi que la date de debut et la date de fin de la periode a moyenner:"
+            << endl;
 }
 
-void menuConsulterCapteursSimilaires(Capteur c){
+void menuDemandeDates() {
+    cout << "Inserer la date de debut et la date de fin de la periode a moyenner:" << endl;
+}
+
+void menuConsulterCapteur() {
+    cout << "Entrez le numero du capteur  a analyser:" << endl;
+}
+
+
+void menuConsulterDetailsCapteur() {
+    cout << "Menu" << endl;
+    cout << "2.1-Consulter les capteurs similaires\n"
+            "2.2-Voir si un capteur est défectueux" << endl;
+}
+
+void menuConsulterCapteursSimilaires(Capteur c) {
     /*Algo capteur similaires*/
 }
 
-void menuConsulterPurificateurs(list<Purificateur> listPuri){
-    cout<<"Liste des Purificateurs: "<<endl;
-    for (Purificateur p : listPuri){
-        cout<< p <<endl;
-    }
-    cout<<"Entrez le numero du purificateur:"<<endl;
+void menuConsulterPurificateurs() {
+    cout
+            << "Entrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
+            << endl;
 }
 /*
 void menuConsulterDetailPurificateur(Purificateur p){
