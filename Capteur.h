@@ -10,7 +10,6 @@
 using namespace std;
 //Constantes
 //Types
-typedef int UtilisateurPrive;
 
 //-------------
 //Role de la classe <Capteur>
