@@ -1,3 +1,10 @@
+/**
+    Gère l'affichage des menus du programme
+    @file Vue.cpp
+    @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna (B3201-B3209)
+*/
+
+
 #ifndef PROJETUML_VUE_H
 #define PROJETUML_VUE_H
 
