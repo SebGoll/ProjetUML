@@ -84,13 +84,19 @@ void menuConsulterCapteursSimilaires(Capteur c) {
 }
 
 void menuConsulterPurificateurs() {
-    cout
-            << "Entrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
+    cout << "Entrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
             << endl;
 }
+
 /*
 void menuConsulterDetailPurificateur(Purificateur p){
     cout<<"Rayon d'influence du capteur"<<endl;
     // cout<<p.calculRayon()<<endl;
 }
 */
+
+
+void resultatQualiteEnPoint(int Qualite) {
+    cout << "La qualite de l'air en ce point est de : " << Qualite << endl;
+
+}
