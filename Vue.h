@@ -20,6 +20,7 @@ void menuConsulterDetailsCapteur();
 void menuQualiteAirPoint();
 void menuQualiteAirZone();
 void menuConsulterPurificateurs();
+void menuDemandeDates();
 
 
 
