@@ -3,7 +3,7 @@
 #ifndef PROJETUML_UTILISATEURGOUVERNEMENT_H
 #define PROJETUML_UTILISATEURGOUVERNEMENT_H
 #include <iostream>
-#import "Utilisateur.h";
+#include "Utilisateur.h"
 using namespace std;
 
 class UtilisateurGouvernement: public Utilisateur {
