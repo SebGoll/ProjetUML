@@ -34,3 +34,7 @@ Mesure::Mesure(string date, float o3, float no2, float so2, float pm10) {
 
 
 }
+
+Mesure::~Mesure() {
+
+}

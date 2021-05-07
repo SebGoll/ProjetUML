@@ -5,6 +5,7 @@
 //Interfaces itilisées
 #include <ctime>
 #include <string>
+
 using namespace std;
 //Constantes
 //Types
@@ -22,6 +23,8 @@ public:
     Mesure(tm *date, float o3, float no2, float so2, float pm10);
 
     Mesure(string date, float o3, float no2, float so2, float pm10);
+
+    virtual ~Mesure();
 
 
     //PRIVE
