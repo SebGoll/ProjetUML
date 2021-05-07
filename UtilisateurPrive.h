@@ -1,6 +1,9 @@
+//Interface de la classe <UtilisateurPrive> (UtilisateurPrive.h)
+
 #ifndef PROJETUML_UTILISATEURPRIVE_H
 #define PROJETUML_UTILISATEURPRIVE_H
 #include <iostream>
+#include <string>
 #import "Utilisateur.h"
 using namespace std;
 
@@ -9,7 +12,7 @@ class UtilisateurPrive: public Utilisateur {
 public:
     //Constructeur(s)
     UtilisateurPrive();
-    UtilisateurPrive(const long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp);
+    UtilisateurPrive(const unsigned long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp);
 
 
     //Destructeur

@@ -1,3 +1,5 @@
+//Interface de la classe <UtilisateurGouvernement> (UtilisateurGouvernement.h)
+
 #ifndef PROJETUML_UTILISATEURGOUVERNEMENT_H
 #define PROJETUML_UTILISATEURGOUVERNEMENT_H
 #include <iostream>
@@ -9,7 +11,7 @@ class UtilisateurGouvernement: public Utilisateur {
 public:
     //Constructeur(s)
     UtilisateurGouvernement();
-    UtilisateurGouvernement(const long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp);
+    UtilisateurGouvernement(const unsigned long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp);
 
 
     //Destructeur
