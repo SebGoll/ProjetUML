@@ -11,3 +11,15 @@ void QualiteAirPoint(double latitude, double longitude, string dateDebut, string
     resultatQualiteEnPoint(0);
 
 }
+
+
+void listerCapteurs(){
+    list<Capteur> listetotal;
+
+    resultatListeCapteur(listetotal);
+}
+
+void listerPurificateurs(){
+    list<Purificateur> listetotal;
+    resultatListePurificateur(listetotal);
+}

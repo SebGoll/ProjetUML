@@ -79,8 +79,8 @@ int main() {
             }
 
         } else if (val == 2 && droits == 1) {
-            cout << "appel a model : liste des capteurs" << endl;
-            menuConsulterCapteur(/*Liste des Capteurs*/);
+            listerCapteurs();
+            menuConsulterCapteur();
             cin >> lecture;
             if (lecture == "aucun") {
                 continue;
@@ -119,7 +119,7 @@ int main() {
 
 
         } else if (val == 3 && droits == 1) {
-            cout << "appel a model : liste des purificateurs" << endl;
+            listerPurificateurs();
             menuConsulterPurificateurs(/*Liste Des Purificateurs*/);
             cin >> lecture;
             if (lecture == "aucun") {

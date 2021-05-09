@@ -6,6 +6,7 @@
 #define PROJETUML_MODEL_H
 
 #include <string>
+#include <list>
 #include "Mesure.h"
 #include "Capteur.h"
 #include "Vue.h"

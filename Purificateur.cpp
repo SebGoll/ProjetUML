@@ -42,3 +42,8 @@ Purificateur::Purificateur(const long &unId,const float &unLong,const float &unL
 Purificateur::~Purificateur() {
 
 }
+
+ostream &operator<<(ostream &flux, const Purificateur &p) {
+    flux <<  "Purificateur n°" << p.id<<"\tLat="<<p.latitude<<"\tLong="<<p.longitude;
+    return flux;
+}
