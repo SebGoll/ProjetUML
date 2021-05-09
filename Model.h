@@ -6,7 +6,6 @@
 #define PROJETUML_MODEL_H
 
 #include <string>
-#include <list>
 #include "Mesure.h"
 #include "Capteur.h"
 #include "Vue.h"
@@ -15,8 +14,8 @@ void QualiteAirPoint(double latitude, double longitude, string dateDebut, string
 void capteursSimilaires(int idCapteur, string dateDebut, string dateFin);
 void listerCapteurs();
 void listerPurificateurs();
-void determinerCapteursProches(double latitude, double longitude);
-void determinerQualiteMoyenne(Capteur monCapteur);
-void determinerQualite(Mesure maMesure);
+list<Capteur> determinerCapteursProches(double latitude, double longitude);
+int determinerQualiteMoyenne(Capteur monCapteur);
+int determinerQualite(Mesure maMesure);
 
 #endif //PROJETUML_MODEL_H

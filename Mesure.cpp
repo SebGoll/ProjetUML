@@ -34,3 +34,19 @@ Mesure::Mesure(string date, float o3, float no2, float so2, float pm10) {
 Mesure::~Mesure() {
 
 }
+
+float Mesure::getO3() const {
+    return o3;
+}
+
+float Mesure::getNo2() const {
+    return no2;
+}
+
+float Mesure::getPm10() const {
+    return pm10;
+}
+
+float Mesure::getSo2() const {
+    return so2;
+}

@@ -41,6 +41,7 @@ public:
 
     float getLongitude() const;
 
+
     void setLongitude(float longitude);
 
     const list<Mesure *> &getMesures() const;
