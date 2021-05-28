@@ -24,12 +24,12 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     float dactuel;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         dactuel= (*it)->distance(latitude,longitude);
-        if (dactuel<max(d1,d2,d3)){
-            if(max(d1,d2,d3)==d1) {
+        if (dactuel<max(max(d1,d2),d3)){
+            if(max(max(d1,d2),d3)==d1) {
                 d1=dactuel;
                 troiscapteursproches[0]=(*it);
             }
-            } else  if(max(d1,d2,d3)==d2){
+            } else  if(max(max(d1,d2),d3)==d2){
                 d2=dactuel;
                 troiscapteursproches[1]=(*it);
             } else {
@@ -51,19 +51,41 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
 
 }
 
+
+
 void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
+
     Capteur capteuracomparer;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         if((*it)->getId()==idCapteur){
             capteuracomparer=*(*it);
-        } else {
-            
-
         }
     }
+    list<Mesure*> mesurescapteurPrincipal =capteuracomparer.getMesures();
+    int qualitesenchaquemesure[mesurescapteurPrincipal.size()];
+    int i=0;
+    for(list<Mesure*>::iterator it=mesurescapteurPrincipal.begin(); it!=mesurescapteurPrincipal.end();it++){
+        qualitesenchaquemesure[i]= determinerQualite(**it);
+        i++;
+    }
+    int score;
+    int scores[listCapteurs.size()];
+    int j=0;
+    for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
+        score=0;
+        i=0;
 
+        if((*it)->getId()!=idCapteur){
+            list<Mesure*> mesmesures =(**it).getMesures();
 
-
+            for(list<Mesure*>::iterator m=mesmesures.begin(); m!=mesmesures.end();m++){
+                score+= abs(qualitesenchaquemesure[i]-determinerQualite(**m));
+                i++;
+            }
+        }
+        scores[j]=score;
+        j++;
+    }
 
 }
 
@@ -153,7 +175,10 @@ int determinerQualiteMoyenne(Capteur monCapteur){
     for(list<Mesure*>::iterator it=mesmesures.begin(); it!=mesmesures.end();it++){
         moyenne+= determinerQualite(**it);
     }
-    moyenne/=mesmesures.size();
+    if(mesmesures.size()!=0){
+        moyenne/=mesmesures.size();
+    }
+
 
 
     return moyenne;
