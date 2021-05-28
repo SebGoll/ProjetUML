@@ -14,8 +14,9 @@ int main() {
 
 
 
-    genererListeMesures();
+
     genererListeCapteurs();
+    genererListeMesures();
     //lecture
     cout << "1: droits du gouv \n2: droit d'un utilisateur lambda\n3: droits fournisseur" << endl;
     cin >> droits;

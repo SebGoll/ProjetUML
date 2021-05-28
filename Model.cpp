@@ -21,22 +21,27 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     troiscapteursproches[2]= new Capteur();
     float d1=1000,d2=1000,d3=1000;
     float dactuel;
+
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
+
         dactuel= (*it)->distance(latitude,longitude);
+        cout << (**it).getId() << " " << dactuel<<endl;
         if (dactuel<max(max(d1,d2),d3)) {
             if (max(max(d1, d2), d3) == d1) {
                 d1 = dactuel;
                 troiscapteursproches[0] = (*it);
+                cout <<" d1 " << (**it).getId() << " " << dactuel<<endl;
             } else if (max(max(d1, d2), d3) == d2) {
                 d2 = dactuel;
                 troiscapteursproches[1] = (*it);
+                cout << " d2 "<<(**it).getId() << " " << dactuel<<endl;
             } else {
                 d3 = dactuel;
                 troiscapteursproches[2] = (*it);
+                cout << " d3 "<<(**it).getId() << " " << dactuel<<endl;
             }
         }
     }
-
     int v1,v2,v3;
     v1= determinerQualiteMoyenne(*troiscapteursproches[0]);
     v2= determinerQualiteMoyenne(*troiscapteursproches[1]);
@@ -104,7 +109,7 @@ void genererListeCapteurs(){
         getline(fileToRead,longitude,';');
         getline(fileToRead,latitude, ';');
         fileToRead.ignore();
-        Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stoi(longitude), stoi(latitude));
+        Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stof(longitude), stof(latitude));
 
         listCapteurs.push_back(c);
     }
@@ -135,12 +140,12 @@ void genererListeMesures(){
         fileToRead.ignore();
         i++;
         if (i == 4){
-            m = new Mesure(date, stoi(mesure[0]),stoi(mesure[1]),stoi(mesure[2]),stoi(mesure[3]) );
+            m = new Mesure(date, stof(mesure[0]),stof(mesure[1]),stof(mesure[2]),stof(mesure[3]) );
             listMesures.push_back(m);
             int idCapteur = stoi(id.erase(0,toErase.length()));
-            for (Capteur* c:listCapteurs){
-                if (c->getId()== idCapteur){
-                    c->ajouterMesure(m);
+            for (list<Capteur*>::iterator it=listCapteurs.begin();it!=listCapteurs.end();it++){
+                if ((*it)->getId() == idCapteur){
+                    (*it)->ajouterMesure(m);
                 }
             }
             i=0;
@@ -149,6 +154,43 @@ void genererListeMesures(){
     fileToRead.close();
 }
 
+void genererListePurificateur(){
+    ifstream fileToRead;
+    string date;
+    string id;
+    string longitude;
+    string mesureType;
+    string mesure[4];
+    int i = 0;
+    string latitude;
+    string toErase = "Sensor";
+    Mesure *m;
+    fileToRead.open("Data/measurements.csv");
+    if (!fileToRead) {
+        cerr <<"Echec de l'ouverture du fichier";
+        exit(1);
+    }
+    while(fileToRead.peek()!=EOF){
+        getline(fileToRead,date,';');
+        getline(fileToRead,id,';');
+        getline(fileToRead,mesureType,';');
+        getline(fileToRead,mesure[i],';');
+        fileToRead.ignore();
+        i++;
+        if (i == 4){
+            m = new Mesure(date, stoi(mesure[0]),stoi(mesure[1]),stoi(mesure[2]),stoi(mesure[3]) );
+            listMesures.push_back(m);
+            int idCapteur = stoi(id.erase(0,toErase.length()));
+            for (list<Capteur*>::iterator it=listCapteurs.begin();it!=listCapteurs.end();it++){
+                if ((*it)->getId() == idCapteur){
+                    (*it)->ajouterMesure(m);
+                }
+            }
+            i=0;
+        }
+    }
+    fileToRead.close();
+}
 
 void QualiteAirPoint(double latitude, double longitude, string dateDebut, string dateFin) {
     resultatQualiteEnPoint(0);
@@ -161,6 +203,17 @@ void listerCapteurs() {
 
 
     resultatListeCapteur(listCapteurs);
+
+//    list<Capteur*>::iterator it = listCapteurs.begin();
+//    list<Mesure*> mm = (*it)->getMesures();
+//    cout << "Capteur" << (*it)->getId() << endl;
+//    int i = 0;
+//    for (Mesure *lol : mm) {
+//        i++;
+////        cout << "Mesures" << mm->getSo2() <<";"<< mm->getPm10() <<";" << mm->getO3() <<";"<< mm->getNo2() <<endl;
+//    }
+//    cout<<i<<endl;
+//    cout<< mm.size() <<endl;
 }
 
 void listerPurificateurs() {
