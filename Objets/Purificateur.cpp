@@ -9,6 +9,10 @@ Purificateur::Purificateur() {
     this->longitude=0;
     this->latitude = 0;
     this->proprietaire = FournisseurPurificateur();
+    time_t timestamp = time( NULL );
+    struct tm now = *localtime( & timestamp );
+    this->dateDebut = now;
+    this->dateFin = now;
 }
 
 Purificateur::Purificateur(const long &unId,const float &unLong,const float &unLa, const FournisseurPurificateur &unFournisseur, tm &leDebut, tm &laFin){
@@ -48,6 +52,7 @@ Purificateur::Purificateur(const long &unId,const float &unLong,const float &unL
 
 /*Destructeur*/
 Purificateur::~Purificateur() {
+
 }
 
 ostream &operator<<(ostream &flux, const Purificateur &p) {
