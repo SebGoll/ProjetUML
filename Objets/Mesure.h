@@ -5,6 +5,7 @@
 //Interfaces itilisées
 #include <ctime>
 #include <string>
+#include <iostream>
 
 using namespace std;
 //Constantes
@@ -17,12 +18,17 @@ using namespace std;
 class Mesure {
     //PUBLIC
 public:
+    tm getDate() const;
+
+    void setDate(tm date);
+
+    friend ostream & operator << (ostream & flux, const Mesure & m);
 
     Mesure();
 
-    Mesure(tm *date, float o3, float no2, float so2, float pm10);
+    Mesure(tm date, float o3, float no2, float so2, float pm10);
 
-    Mesure(string date, float o3, float no2, float so2, float pm10);
+    Mesure(const string& date, float o3, float no2, float so2, float pm10);
 
     virtual ~Mesure();
 
@@ -38,7 +44,7 @@ protected:
     //Méthodes protégées
 
     //Attributs protégés
-    tm *date;
+    tm date;
     float o3;
     float no2;
     float so2;

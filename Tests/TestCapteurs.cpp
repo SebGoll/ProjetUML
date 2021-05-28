@@ -31,7 +31,7 @@ int main() {
     testModificationCapteur(mainCapteur);
     testValParam(mainCapteur);
 
-    //Tests de destructions des capteurs
+    //Tests de destruction des capteurs
     testDestructeur(mainCapteur);
     testDestructeur(captConstrVide);
 
