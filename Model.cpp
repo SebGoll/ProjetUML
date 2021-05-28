@@ -162,16 +162,16 @@ void listerCapteurs() {
 
     resultatListeCapteur(listCapteurs);
 
-    list<Capteur*>::iterator it = listCapteurs.begin();
-    list<Mesure*> mm = (*it)->getMesures();
-    cout << "Capteur" << (*it)->getId() << endl;
-    int i = 0;
-    for (Mesure *lol : mm) {
-        i++;
-//        cout << "Mesures" << mm->getSo2() <<";"<< mm->getPm10() <<";" << mm->getO3() <<";"<< mm->getNo2() <<endl;
-    }
-    cout<<i<<endl;
-    cout<< mm.size() <<endl;
+//    list<Capteur*>::iterator it = listCapteurs.begin();
+//    list<Mesure*> mm = (*it)->getMesures();
+//    cout << "Capteur" << (*it)->getId() << endl;
+//    int i = 0;
+//    for (Mesure *lol : mm) {
+//        i++;
+////        cout << "Mesures" << mm->getSo2() <<";"<< mm->getPm10() <<";" << mm->getO3() <<";"<< mm->getNo2() <<endl;
+//    }
+//    cout<<i<<endl;
+//    cout<< mm.size() <<endl;
 }
 
 void listerPurificateurs() {
