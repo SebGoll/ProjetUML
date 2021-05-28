@@ -4,12 +4,61 @@
 
 #include "Model.h"
 
+list<Capteur*> listetotal;
 
-void QualiteAirPoint(double latitude, double longitude, string dateDebut, string dateFin) {
+void QualiteAirPoint(float latitude, float longitude, string dateDebut, string dateFin) {
+    Capteur* troiscapteursproches[3];
+    troiscapteursproches[0]= new Capteur();
+    troiscapteursproches[1]= new Capteur();
+    troiscapteursproches[2]= new Capteur();
+    float d1=1000,d2=1000,d3=1000;
 
-    resultatQualiteEnPoint(0);
+    float dactuel;
+    for(list<Capteur*>::iterator it=listetotal.begin(); it!=listetotal.end();it++){
+        dactuel= (*it)->distance(latitude,longitude);
+        if (dactuel<max(d1,d2,d3)){
+            if(max(d1,d2,d3)==d1) {
+                d1=dactuel;
+                troiscapteursproches[0]=(*it);
+            }
+            } else  if(max(d1,d2,d3)==d2){
+                d2=dactuel;
+                troiscapteursproches[1]=(*it);
+            } else {
+                d3=dactuel;
+                troiscapteursproches[2]=(*it);
+
+            }
+
+
+    }
+
+    int v1,v2,v3;
+    v1= determinerQualiteMoyenne(*troiscapteursproches[0]);
+    v2= determinerQualiteMoyenne(*troiscapteursproches[1]);
+    v3= determinerQualiteMoyenne(*troiscapteursproches[2]);
+    float vfinal = d1*v1 +d2*v2 +d3*v3;
+    vfinal/=d1+d2+d3;
+    resultatQualiteEnPoint(vfinal);
 
 }
+
+void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
+    Capteur capteuracomparer;
+    for(list<Capteur*>::iterator it=listetotal.begin(); it!=listetotal.end();it++){
+        if((*it)->getId()==idCapteur){
+            capteuracomparer=*(*it);
+        } else {
+            
+
+        }
+    }
+
+
+
+
+}
+
 
 
 void listerCapteurs() {

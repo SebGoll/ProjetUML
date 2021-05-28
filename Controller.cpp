@@ -21,10 +21,10 @@ int main() {
     cin >> droits;
     int val = -1;
     string lecture;
-    double latitude;
-    double longitude;
+    float latitude;
+    float longitude;
     double rayon;
-    string idcapteur;
+    int idcapteur;
     string idpurificateur;
     string datedebut, datefin;
     int optionquitter = (droits == 1) ? 4 : 3;
@@ -49,9 +49,9 @@ int main() {
 
                 menuQualiteAirPoint();
                 cin >> lecture;
-                latitude = stod(lecture);
+                latitude = stof(lecture);
                 cin >> lecture;
-                longitude = stod(lecture);
+                longitude = stof(lecture);
                 cin >> lecture;
                 datedebut = lecture;
                 cin >> lecture;
@@ -85,7 +85,7 @@ int main() {
             if (lecture == "aucun") {
                 continue;
             }
-            idcapteur = lecture;
+            idcapteur = stoi(lecture);
             menuConsulterDetailsCapteur();
 
             cin >> lecture;
@@ -100,8 +100,8 @@ int main() {
                 datedebut = lecture;
                 cin >> lecture;
                 datefin = lecture;
-                cout << "appel a model : calcul similarité avec idcapteur= " << idcapteur << " de " << datedebut
-                     << " a " << datefin << endl;
+                capteursSimilaires(idcapteur,datedebut,datefin);
+
                 val = 2;
 
 
