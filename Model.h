@@ -10,6 +10,8 @@
 #include "Objets/Capteur.h"
 #include "Vue.h"
 using namespace std;
+void genererListeCapteurs();
+void genererListeMesures();
 void QualiteAirPoint(double latitude, double longitude, string dateDebut, string dateFin);
 void capteursSimilaires(int idCapteur, string dateDebut, string dateFin);
 void listerCapteurs();
