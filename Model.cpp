@@ -7,6 +7,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <ctime>
 using namespace std;
 
 list<Capteur*> listCapteurs;
@@ -15,6 +16,30 @@ list<Mesure*> listMesures;
 
 
 void QualiteAirPoint(float latitude, float longitude, string dateDebut, string dateFin) {
+
+
+    dateDebut.append(" 12:00:00");
+    dateFin.append(" 12:00:00");
+    time_t now = time(0);
+    tm dated = *localtime(&now);
+    dated.tm_year = stoi(dateDebut.substr(0, 4)) - 1900;
+    dated.tm_mon = stoi(dateDebut.substr(5, 2)) - 1;
+    dated.tm_mday = stoi(dateDebut.substr(8, 2));
+    dated.tm_hour = stoi(dateDebut.substr(11, 2));
+    dated.tm_min = stoi(dateDebut.substr(14, 2));
+    dated.tm_sec = stoi(dateDebut.substr(17, 2));
+
+
+    tm datef = *localtime(&now);
+    datef.tm_year = stoi(dateFin.substr(0, 4)) - 1900;
+    datef.tm_mon = stoi(dateFin.substr(5, 2)) - 1;
+    datef.tm_mday = stoi(dateFin.substr(8, 2));
+    datef.tm_hour = stoi(dateFin.substr(11, 2));
+    datef.tm_min = stoi(dateFin.substr(14, 2));
+    datef.tm_sec = stoi(dateFin.substr(17, 2));
+
+
+
     Capteur* troiscapteursproches[3];
     troiscapteursproches[0]= new Capteur();
     troiscapteursproches[1]= new Capteur();
@@ -25,7 +50,6 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
 
         dactuel= (*it)->distance(latitude,longitude);
-        cout << (**it).getId() << " " << dactuel<<endl;
         if (dactuel<max(max(d1,d2),d3)) {
             if (max(max(d1, d2), d3) == d1) {
                 d1 = dactuel;
@@ -43,9 +67,9 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
         }
     }
     int v1,v2,v3;
-    v1= determinerQualiteMoyenne(*troiscapteursproches[0]);
-    v2= determinerQualiteMoyenne(*troiscapteursproches[1]);
-    v3= determinerQualiteMoyenne(*troiscapteursproches[2]);
+    v1= determinerQualiteMoyenne(*troiscapteursproches[0],dated,datef);
+    v2= determinerQualiteMoyenne(*troiscapteursproches[1],dated,datef);
+    v3= determinerQualiteMoyenne(*troiscapteursproches[2],dated,datef);
     float vfinal = d1*v1 +d2*v2 +d3*v3;
     vfinal/=d1+d2+d3;
     resultatQualiteEnPoint(vfinal);
@@ -221,15 +245,19 @@ void listerPurificateurs() {
 //    resultatListePurificateur(listPurificateurs);
 }
 
-int determinerQualiteMoyenne(Capteur monCapteur){
+int determinerQualiteMoyenne(Capteur monCapteur, tm dated, tm datef){
     list<Mesure*> mesmesures =monCapteur.getMesures();
     int moyenne =0 ;
-    
+    int nbmesure=0;
     for(list<Mesure*>::iterator it=mesmesures.begin(); it!=mesmesures.end();it++){
-        moyenne+= determinerQualite(**it);
+        tm datemesure = (**it).getDate();
+        if(difftime(mktime(&datemesure),mktime(&dated))>=0 && (difftime(mktime(&datef),mktime(&datemesure))>=0)) {
+            moyenne += determinerQualite(**it);
+            nbmesure++;
+        }
     }
-    if(mesmesures.size()!=0){
-        moyenne/=mesmesures.size();
+    if(nbmesure!=0){
+        moyenne/=nbmesure;
     }
 
 
