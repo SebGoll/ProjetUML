@@ -1,9 +1,17 @@
 #include "Purificateur.h"
+#include "FournisseurPurificateur.h"
 
 //Purificateur n°XX, longitude:XX, latitude:XX, fournisseur:XX, dateDebut:XX, dateFin:XX
 
 /*Constructeurs*/
-Purificateur::Purificateur() {}
+Purificateur::Purificateur() {
+    this->id= -1;
+    this->longitude=0;
+    this->latitude = 0;
+    this->proprietaire = FournisseurPurificateur();
+    this->dateDebut= 0;
+    this->dateFin = 0;
+}
 
 Purificateur::Purificateur(const long &unId,const float &unLong,const float &unLa, const FournisseurPurificateur &unFournisseur, tm* &leDebut, tm* &laFin){
     this->id= unId;
@@ -46,6 +54,24 @@ Purificateur::~Purificateur() {
 }
 
 ostream &operator<<(ostream &flux, const Purificateur &p) {
-    flux <<  "Purificateur n°" << p.id<<"\tLat="<<p.latitude<<"\tLong="<<p.longitude;
+    flux <<  "Purificateur num:"<< p.id<<"\nLat="<<p.latitude<<"\nLong="<<p.longitude<<"\nFournisseur="<<p.proprietaire.getNomEntreprise()
+    <<"\nDebut="<<asctime(p.dateDebut)<<"Fin="<<asctime(p.dateFin);
     return flux;
+}
+
+/*Get Set*/
+tm *Purificateur::getDateDebut() const {
+    return dateDebut;
+}
+
+void Purificateur::setDateDebut(tm *dateDebut) {
+    Purificateur::dateDebut = dateDebut;
+}
+
+tm *Purificateur::getDateFin() const {
+    return dateFin;
+}
+
+void Purificateur::setDateFin(tm *dateFin) {
+    Purificateur::dateFin = dateFin;
 }

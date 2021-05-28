@@ -9,6 +9,12 @@ using namespace std;
 class FournisseurPurificateur : public Utilisateur {
 
 public:
+
+    //Get/Set
+    const string &getNomEntreprise() const;
+    void setNomEntreprise(const string &nomEntreprise);
+
+
     //Constructeur(s)
     FournisseurPurificateur();
     FournisseurPurificateur(const unsigned long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp, const string &unNomEntreprise);
@@ -17,9 +23,12 @@ public:
     //Destructeur
     virtual ~FournisseurPurificateur();
 
+    //Surcharge
+    friend ostream & operator << (ostream & flux, const FournisseurPurificateur &f);
 
 
-private:
+
+protected:
     //Attributs privés
     string nomEntreprise;
 

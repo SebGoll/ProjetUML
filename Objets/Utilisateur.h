@@ -22,7 +22,7 @@ public:
     virtual ~Utilisateur();
 
 
-private:
+protected:
     //Attributs privés
     unsigned long id;
     string nom;
