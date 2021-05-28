@@ -1,5 +1,7 @@
 #include "Purificateur.h"
 
+//Purificateur n°XX, longitude:XX, latitude:XX, fournisseur:XX, dateDebut:XX, dateFin:XX
+
 /*Constructeurs*/
 Purificateur::Purificateur() {}
 
