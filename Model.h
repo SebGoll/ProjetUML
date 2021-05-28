@@ -6,8 +6,8 @@
 #define PROJETUML_MODEL_H
 
 #include <string>
-#include "Mesure.h"
-#include "Capteur.h"
+#include "Objets/Mesure.h"
+#include "Objets/Capteur.h"
 #include "Vue.h"
 using namespace std;
 void QualiteAirPoint(double latitude, double longitude, string dateDebut, string dateFin);

@@ -20,14 +20,14 @@ test :$(OBJETSTEST)
 	$(ECHO) $(GCC) $(CCFLAGS) $<
 	$(GCC) $(CCFLAGS) $< $(DFLAGS)
 
-Capteur.o : Mesure.h UtilisateurPrive.h
-Model.o : Mesure.h Capteur.h Vue.h
-Vue.o : Capteur.h Purificateur.h 
-Purificateur.o : FournisseurPurificateur.h
+Capteur.o : Objets/Mesure.h Objets/UtilisateurPrive.h
+Model.o : Objets/Mesure.h Objets/Capteur.h Vue.h
+Vue.o : Objets/Capteur.h Objets/Purificateur.h
+Purificateur.o : Objets/FournisseurPurificateur.h
 Controller.o : Vue.h Model.h
-TestMesuresCapteurs.o : Capteur.h Mesure.h
-UtilisateurGouvernement.o : Utilisateur.h
-UtilisateurPrive.o : Utilisateur.h
+TestMesuresCapteurs.o : Objets/Capteur.h Objets/Mesure.h
+UtilisateurGouvernement.o : Objets/Utilisateur.h
+UtilisateurPrive.o : Objets/Utilisateur.h
 clean : 
 	@rm -rf *.o
 

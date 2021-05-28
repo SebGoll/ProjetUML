@@ -8,8 +8,8 @@
 #ifndef PROJETUML_VUE_H
 #define PROJETUML_VUE_H
 
-#include "Capteur.h"
-#include "Purificateur.h"
+#include "Objets/Capteur.h"
+#include "Objets/Purificateur.h"
 
 #include <list>
 extern int droits;

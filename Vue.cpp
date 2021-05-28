@@ -11,7 +11,7 @@ using namespace std;
 #include "Vue.h"
 #include <list>
 #include <String>
-#include "Capteur.h"
+#include "Objets/Capteur.h"
 //#include "Purificateur.h"
 
 
