@@ -2,7 +2,7 @@
 
 //Surcharge d'opérateurs
 ostream &operator<<(ostream &flux, const Utilisateur &u) {
-    flux <<  "Utilisateur n°" << u.id<<"\nNom="<<u.nom<<"\nPrenom="<<u.prenom<<"\nMail="<<u.mail<<"\nMot de passe="<<u.mdp;
+    flux <<  "Utilisateur numéro=" << u.id<<"\nNom="<<u.nom<<"\nPrenom="<<u.prenom<<"\nMail="<<u.mail<<"\nMot de passe="<<u.mdp;
     return flux;
 }
 
