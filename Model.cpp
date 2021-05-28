@@ -163,8 +163,7 @@ void QualiteAirPoint(double latitude, double longitude, string dateDebut, string
 
 
 void listerCapteurs() {
-    //genererListeCapteurs();
-    genererListeMesures();
+    genererListeCapteurs();
     resultatListeCapteur(listCapteurs);
 }
 
