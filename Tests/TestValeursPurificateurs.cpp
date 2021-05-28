@@ -9,6 +9,11 @@ FournisseurPurificateur* testCreaFourniPuriConstr(); //Test du constructeur four
 Purificateur* testCreaPuriVide(); //Test du constructeur vide
 Purificateur* testCreaPuriConstr2(); //Test du constructeur 2 (date=string)
 Purificateur* testCreaPuriConstr1(); //Test du constructeur 1 (date=*tm)
+void testGetValeursFournisseur(FournisseurPurificateur* f); //Test des getters du Fournisseur
+FournisseurPurificateur* testSetValeursFournisseur(FournisseurPurificateur* f); //Test des setters du Fournisseur
+void testGetValeurs(Purificateur* p); //Test des getters du Purificateur
+Purificateur* testSetValeursPuri(Purificateur* p); //Test des setters du Purificateur
+
 
 int main(){
 
@@ -26,6 +31,15 @@ int main(){
     Purificateur* puriConstr2 = testCreaPuriConstr2();
     cout<<*puriConstr2<<"\n"<<endl;
 
+    //Test des setters-getters de FournisseurPurificateur
+    testGetValeursFournisseur(fourniConstr);
+    FournisseurPurificateur* fourniModif = testSetValeursFournisseur(fourniConstr);
+    cout<<*fourniModif<<"\n"<<endl;
+
+    //Test des setters-getters de Purificateur
+    testGetValeurs(puriConstr2);
+    Purificateur* puriModif = testSetValeursPuri(puriConstr2);
+    cout<<*puriModif<<"\n"<<endl;
 
     return 0;
 }
@@ -66,8 +80,38 @@ FournisseurPurificateur* testCreaFourniPuriVide(){
 }
 
 FournisseurPurificateur* testCreaFourniPuriConstr(){
-    FournisseurPurificateur * fourni = new FournisseurPurificateur(25,"Louille","LeRaton","megalux@insa-lyon.fr","boulghour987678","INSA");
+    FournisseurPurificateur * fourni = new FournisseurPurificateur(25,"Louille","Pain","megalux@insa-lyon.fr","boulghour987678","INSA");
     assert(fourni!= nullptr);
     cout<<"Test: Creation d'un fournisseur avec un constructeur avec des donnees"<<endl;
     return fourni;
+}
+
+void testGetValeursFournisseur(FournisseurPurificateur* f){
+    cout<<"Test: Get les attributs d'un fournisseur"<<endl;
+    cout<<"Id:"<<f->getId()<<" - Nom:"<<f->getNom()<<" - Prenom:"<<f->getPrenom()<<" - Mail:"<<f->getMail()<<" - Mdp:"<<f->getMdp()<<" - Nom Entreprise:"<<f->getNomEntreprise()<<"\n"<<endl;
+}
+
+FournisseurPurificateur* testSetValeursFournisseur(FournisseurPurificateur* f){
+    cout<<"Test: Set les attributs d'un fournisseur"<<endl;
+    f->setId(40); f->setNom("Pommier"); f->setPrenom("Roberto"); f->setMail("roberrrto@insa-lyon.fr"); f->setMdp("tJisLJDz486"); f->setNomEntreprise("InsaSuperior");
+    return f;
+}
+
+void testGetValeurs(Purificateur* p){
+    cout<<"Test: Get les attributs d'un purificateur"<<endl;
+    cout<<"Id:"<<p->getId()<<" - Longitude:"<<p->getLongitude()<<" - Latitude:"<<p->getLatitude()<<" - Proprietaire:"<<p->getProprietaire().getNomEntreprise();
+    tm debut = p->getDateDebut();
+    tm fin = p->getDateFin();
+    cout<<" - DateDebut:"<<asctime(&debut)<<" - DateFin:"<<asctime(&fin)<<"\n"<<endl;
+}
+
+Purificateur* testSetValeursPuri(Purificateur* p) {
+    cout << "Test: Set les attributs d'un purificateur" << endl;
+    FournisseurPurificateur *fourni = new FournisseurPurificateur();
+    fourni->setNomEntreprise("ENSA");
+    p->setId(842);
+    p->setLongitude(10);
+    p->setLatitude(20);
+    p->setProprietaire(*fourni);
+    return p;
 }
