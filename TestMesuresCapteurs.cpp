@@ -17,7 +17,6 @@ int main(){
     testValParam(mainCapteur);
 //    testValParam(captConstrVide);
 
-    cout<<mainCapteur<<endl;
 
     return 0;
 }
@@ -35,6 +34,8 @@ void testCapteurConstr2(Capteur* ptrC){
 }
 
 void testValParam(Capteur* ptrC){
+
+    cout<<"\nLes valeurs des attributs du capteur sont les suivants:"<<endl;
     cout<<"Id:"<<ptrC->getId()<<"\n";
     cout<<"Latitude:"<<ptrC->getLatitude()<<"\n";
     cout<<"Longitude:"<<ptrC->getLongitude()<<"\n";
