@@ -28,11 +28,14 @@ void genererListeCapteurs(){
 
         getline(fileToRead,id,';');
         getline(fileToRead,longitude,';');
-        getline(fileToRead,latitude);
+        getline(fileToRead,latitude, ';');
+        fileToRead.ignore();
+        cout << id << "-"<< longitude << "-"<< latitude <<endl;
         Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stoi(longitude), stoi(latitude));
 
         listCapteurs.push_back(c);
     }
+    cout <<"done";
     fileToRead.close();
 }
 
@@ -47,7 +50,7 @@ void genererListeMesures(){
     string latitude;
     string toErase = "Sensor";
     Mesure *m;
-    fileToRead.open("Data/cleaners.csv");
+    fileToRead.open("Data/measurements.csv");
     if (!fileToRead) {
         cerr <<"Echec de l'ouverture du fichier";
         exit(1);
@@ -56,17 +59,18 @@ void genererListeMesures(){
         getline(fileToRead,date,';');
         getline(fileToRead,id,';');
         getline(fileToRead,mesureType,';');
-        getline(fileToRead,mesure[i]);
+        getline(fileToRead,mesure[i],';');
+        fileToRead.ignore();
         i++;
         if (i == 4){
             m = new Mesure(date, stoi(mesure[0]),stoi(mesure[1]),stoi(mesure[2]),stoi(mesure[3]) );
-        }
-
-        listMesures.push_back(m);
-        for (Capteur* c:listCapteurs){
-            if (c->getId()== stoi(id.erase(0,toErase.length()))){
-                c->ajouterMesure(m);
+            listMesures.push_back(m);
+            for (Capteur* c:listCapteurs){
+                if (c->getId()== stoi(id.erase(0,toErase.length()))){
+                    c->ajouterMesure(m);
+                }
             }
+            i=0;
         }
     }
     fileToRead.close();
@@ -80,7 +84,8 @@ void QualiteAirPoint(double latitude, double longitude, string dateDebut, string
 
 
 void listerCapteurs() {
-    genererListeCapteurs();
+    //genererListeCapteurs();
+    genererListeMesures();
     resultatListeCapteur(listCapteurs);
 }
 
