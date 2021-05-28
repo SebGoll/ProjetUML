@@ -12,20 +12,30 @@ class Purificateur {
 
 public:
 
-    tm *getDateDebut() const;
+    tm getDateDebut() const;
+    void setDateDebut(tm dateDebut);
 
-    void setDateDebut(tm *dateDebut);
+    tm getDateFin() const;
+    void setDateFin(tm dateFin);
 
-    tm *getDateFin() const;
+    long getId() const;
+    void setId(long id);
 
-    void setDateFin(tm *dateFin);
+    float getLongitude() const;
+    void setLongitude(float longitude);
+
+    float getLatitude() const;
+    void setLatitude(float latitude);
+
+    const FournisseurPurificateur &getProprietaire() const;
+    void setProprietaire(const FournisseurPurificateur &proprietaire);
 
     //Surcharge d'opérateurs
     friend ostream & operator << (ostream & flux, const Purificateur & c);
 
     //Constructeurs
     Purificateur();
-    Purificateur(const long &unId,const float &unLong,const float &unLa, const FournisseurPurificateur &unFournisseur, tm* &leDebut, tm* &laFin);
+    Purificateur(const long &unId,const float &unLong,const float &unLa, const FournisseurPurificateur &unFournisseur, tm &leDebut, tm &laFin);
     Purificateur(const long &unId,const float &unLong,const float &unLa, const FournisseurPurificateur &unFournisseur, const string &leDebut, const string &laFin);
 
     //Destructeur
@@ -35,11 +45,13 @@ public:
 private:
     //Attributs privés
     long id;
+
+private:
     float longitude;
     float latitude;
     FournisseurPurificateur proprietaire;
-    tm* dateDebut;
-    tm* dateFin;
+    tm dateDebut;
+    tm dateFin;
 
 };
 

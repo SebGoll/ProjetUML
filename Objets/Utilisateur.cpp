@@ -27,3 +27,45 @@ Utilisateur::Utilisateur(const unsigned long &unId, const string &unNom, const s
 Utilisateur::~Utilisateur() {
 
 }
+
+/*Get Set*/
+
+unsigned long Utilisateur::getId() const {
+    return id;
+}
+
+void Utilisateur::setId(unsigned long id) {
+    Utilisateur::id = id;
+}
+
+const string &Utilisateur::getNom() const {
+    return nom;
+}
+
+void Utilisateur::setNom(const string &nom) {
+    Utilisateur::nom = nom;
+}
+
+const string &Utilisateur::getPrenom() const {
+    return prenom;
+}
+
+void Utilisateur::setPrenom(const string &prenom) {
+    Utilisateur::prenom = prenom;
+}
+
+const string &Utilisateur::getMail() const {
+    return mail;
+}
+
+void Utilisateur::setMail(const string &mail) {
+    Utilisateur::mail = mail;
+}
+
+const string &Utilisateur::getMdp() const {
+    return mdp;
+}
+
+void Utilisateur::setMdp(const string &mdp) {
+    Utilisateur::mdp = mdp;
+}
