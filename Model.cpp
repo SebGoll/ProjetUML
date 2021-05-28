@@ -3,24 +3,53 @@
 //
 
 #include "Model.h"
+#include <list>
+#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+list<Capteur*> listCapteurs;
+list<Purificateur*> listPurificateurs;
+list<Mesure*> listMesures;
+
 
 
 void QualiteAirPoint(double latitude, double longitude, string dateDebut, string dateFin) {
-
     resultatQualiteEnPoint(0);
 
 }
 
 
 void listerCapteurs() {
-    list<Capteur> listetotal;
+    ifstream fileToRead;
+    string id;
+    string longitude;
+    string latitude;
+    string toErase = "Sensor";
+    fileToRead.open("Data/sensors.csv");
+    if (!fileToRead) {
+        cerr <<"Echec de l'ouverture du fichier";
+        exit(1);
+    }
+    while(fileToRead.peek()!=EOF){
 
-    resultatListeCapteur(listetotal);
+        getline(fileToRead,id,';');
+        getline(fileToRead,longitude,';');
+        getline(fileToRead,latitude);
+        Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stoi(longitude), stoi(latitude));
+
+        listCapteurs.push_back(c);
+    }
+    fileToRead.close();
+    resultatListeCapteur(listCapteurs);
 }
 
 void listerPurificateurs() {
-    list<Purificateur> listetotal;
-    resultatListePurificateur(listetotal);
+    list<Purificateur> listPurificateurs;
+    
+
+    resultatListePurificateur(listPurificateurs);
 }
 
 int determinerQualiteMoyenne(Capteur monCapteur){

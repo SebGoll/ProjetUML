@@ -27,6 +27,8 @@ ostream &operator<<(ostream &flux, const Capteur &c) {
     }else{
         flux<<"Ce capteur est non-fiable"<<endl;
     }
+    string s = "Capteur n°";
+    flux <<  "Capteur " << c.id<<"  Lat="<<c.latitude<<"  Long="<<c.longitude;
     return flux;
 }
 
