@@ -3,6 +3,7 @@
 //
 
 #include "Capteur.h"
+#include <cmath>
 
 Capteur::Capteur(){
     this->id=0;
@@ -14,6 +15,8 @@ Capteur::Capteur(){
 Capteur::~Capteur() {
 
 }
+
+
 
 Capteur::Capteur(unsigned long id, float latitude, float longitude) : id(id), latitude(latitude), longitude(longitude) {
     this->fiable=true;
@@ -30,6 +33,11 @@ ostream &operator<<(ostream &flux, const Capteur &c) {
     string s = "Capteur n°";
     flux <<  "Capteur " << c.id<<"  Lat="<<c.latitude<<"  Long="<<c.longitude;
     return flux;
+}
+
+float Capteur::distance(float la,float lo){
+    return sqrt(pow(this->latitude-la,2) + pow(this->longitude-lo,2));
+
 }
 
 void Capteur::ajouterMesure(Mesure *m) {
