@@ -138,9 +138,9 @@ void genererListeMesures(){
             m = new Mesure(date, stoi(mesure[0]),stoi(mesure[1]),stoi(mesure[2]),stoi(mesure[3]) );
             listMesures.push_back(m);
             int idCapteur = stoi(id.erase(0,toErase.length()));
-            for (Capteur* c:listCapteurs){
-                if (c->getId()== idCapteur){
-                    c->ajouterMesure(m);
+            for (list<Capteur*>::iterator it=listCapteurs.begin();it!=listCapteurs.end();it++){
+                if ((*it)->getId() == idCapteur){
+                    (*it)->ajouterMesure(m);
                 }
             }
             i=0;
@@ -161,6 +161,17 @@ void listerCapteurs() {
 
 
     resultatListeCapteur(listCapteurs);
+
+    list<Capteur*>::iterator it = listCapteurs.begin();
+    list<Mesure*> mm = (*it)->getMesures();
+    cout << "Capteur" << (*it)->getId() << endl;
+    int i = 0;
+    for (Mesure *lol : mm) {
+        i++;
+//        cout << "Mesures" << mm->getSo2() <<";"<< mm->getPm10() <<";" << mm->getO3() <<";"<< mm->getNo2() <<endl;
+    }
+    cout<<i<<endl;
+    cout<< mm.size() <<endl;
 }
 
 void listerPurificateurs() {
