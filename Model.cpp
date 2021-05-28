@@ -11,9 +11,7 @@
 using namespace std;
 
 list<Capteur*> listCapteurs;
-list<Purificateur*> listPurificateurs;
 list<Mesure*> listMesures;
-
 
 void QualiteAirPoint(float latitude, float longitude, string dateDebut, string dateFin) {
 
@@ -76,10 +74,7 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
 
 }
 
-
-
 void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
-
     Capteur capteuracomparer;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         if((*it)->getId()==idCapteur){
@@ -114,9 +109,6 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
 
 }
 
-
-
-
 void genererListeCapteurs(){
     ifstream fileToRead;
     string id;
@@ -144,11 +136,9 @@ void genererListeMesures(){
     ifstream fileToRead;
     string date;
     string id;
-    string longitude;
     string mesureType;
     string mesure[4];
     int i = 0;
-    string latitude;
     string toErase = "Sensor";
     Mesure *m;
     fileToRead.open("Data/measurements.csv");
@@ -165,44 +155,6 @@ void genererListeMesures(){
         i++;
         if (i == 4){
             m = new Mesure(date, stof(mesure[0]),stof(mesure[1]),stof(mesure[2]),stof(mesure[3]) );
-            listMesures.push_back(m);
-            int idCapteur = stoi(id.erase(0,toErase.length()));
-            for (list<Capteur*>::iterator it=listCapteurs.begin();it!=listCapteurs.end();it++){
-                if ((*it)->getId() == idCapteur){
-                    (*it)->ajouterMesure(m);
-                }
-            }
-            i=0;
-        }
-    }
-    fileToRead.close();
-}
-
-void genererListePurificateur(){
-    ifstream fileToRead;
-    string date;
-    string id;
-    string longitude;
-    string mesureType;
-    string mesure[4];
-    int i = 0;
-    string latitude;
-    string toErase = "Sensor";
-    Mesure *m;
-    fileToRead.open("Data/measurements.csv");
-    if (!fileToRead) {
-        cerr <<"Echec de l'ouverture du fichier";
-        exit(1);
-    }
-    while(fileToRead.peek()!=EOF){
-        getline(fileToRead,date,';');
-        getline(fileToRead,id,';');
-        getline(fileToRead,mesureType,';');
-        getline(fileToRead,mesure[i],';');
-        fileToRead.ignore();
-        i++;
-        if (i == 4){
-            m = new Mesure(date, stoi(mesure[0]),stoi(mesure[1]),stoi(mesure[2]),stoi(mesure[3]) );
             listMesures.push_back(m);
             int idCapteur = stoi(id.erase(0,toErase.length()));
             for (list<Capteur*>::iterator it=listCapteurs.begin();it!=listCapteurs.end();it++){

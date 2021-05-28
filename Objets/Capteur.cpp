@@ -23,15 +23,12 @@ Capteur::Capteur(unsigned long id, float latitude, float longitude) : id(id), la
 }
 
 ostream &operator<<(ostream &flux, const Capteur &c) {
-
-    flux <<  "Capteur numero " << c.getId()<<"\tLat="<<c.getLatitude()<<"\tLong="<<c.getLongitude()<<endl;
+    flux <<  "Capteur " << c.getId()<<"  Lat="<<c.getLatitude()<<"  Long="<<c.getLongitude();
     if(c.isFiable()){
-        flux<<"Ce capteur est fiable"<<endl;
+        flux<<"  Ce capteur est fiable";
     }else{
-        flux<<"Ce capteur est non-fiable"<<endl;
+        flux<<"  Ce capteur est non-fiable";
     }
-    string s = "Capteur n°";
-    flux <<  "Capteur " << c.id<<"  Lat="<<c.latitude<<"  Long="<<c.longitude;
     return flux;
 }
 
