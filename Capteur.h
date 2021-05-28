@@ -31,6 +31,23 @@ public:
 
     void setFiable(bool fiable);
 
+    unsigned long getId() const;
+
+    void setId(unsigned long id);
+
+    float getLatitude() const;
+
+    void setLatitude(float latitude);
+
+    float getLongitude() const;
+
+
+    void setLongitude(float longitude);
+
+    const list<Mesure *> &getMesures() const;
+
+    void setMesures(const list<Mesure *> &mesures);
+
     //Surcharge d'opérateurs
     friend ostream & operator << (ostream & flux, const Capteur & c);
 

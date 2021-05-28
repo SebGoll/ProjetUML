@@ -69,7 +69,7 @@ void menuDemandeDates() {
 }
 
 void menuConsulterCapteur() {
-    cout << "Entrez le numero du capteur  a analyser:" << endl;
+    cout << "Entrez le numero du capteur  a analyser\n(saisissez \"aucun\" pour retourner au menu):" << endl;
 }
 
 
@@ -79,18 +79,37 @@ void menuConsulterDetailsCapteur() {
             "2.2-Voir si un capteur est défectueux" << endl;
 }
 
-void menuConsulterCapteursSimilaires(Capteur c) {
-    /*Algo capteur similaires*/
-}
+
 
 void menuConsulterPurificateurs() {
-    cout
-            << "Entrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
+    cout << "Entrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
             << endl;
 }
+
 /*
 void menuConsulterDetailPurificateur(Purificateur p){
     cout<<"Rayon d'influence du capteur"<<endl;
     // cout<<p.calculRayon()<<endl;
 }
 */
+
+
+void resultatQualiteEnPoint(int Qualite) {
+    cout << "La qualite de l'air en ce point est de : " << Qualite << endl;
+
+}
+
+void resultatListeCapteur(list<Capteur> tousCapteurs){
+    cout << "Liste des capteurs :" << endl;
+    for (list<Capteur>::iterator it=tousCapteurs.begin();it!=tousCapteurs.end();it++){
+        cout << *it <<  endl;
+    }
+    cout << endl <<endl;
+}
+void resultatListePurificateur(list<Purificateur> tousPurificateurs){
+    cout << "Liste des purificateurs :" << endl;
+    for (list<Purificateur>::iterator it=tousPurificateurs.begin();it!=tousPurificateurs.end();it++){
+        cout << *it <<  endl;
+    }
+    cout << endl <<endl;
+}

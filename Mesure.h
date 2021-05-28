@@ -26,7 +26,13 @@ public:
 
     virtual ~Mesure();
 
+    float getSo2() const;
 
+    float getO3() const;
+
+    float getNo2() const;
+
+    float getPm10() const;
     //PRIVE
 protected:
     //Méthodes protégées

@@ -42,3 +42,35 @@ void Capteur::setFiable(bool fiable) {
     Capteur::fiable = fiable;
 }
 
+unsigned long Capteur::getId() const {
+    return id;
+}
+
+void Capteur::setId(unsigned long id) {
+    Capteur::id = id;
+}
+
+float Capteur::getLatitude() const {
+    return latitude;
+}
+
+void Capteur::setLatitude(float latitude) {
+    Capteur::latitude = latitude;
+}
+
+float Capteur::getLongitude() const {
+    return longitude;
+}
+
+void Capteur::setLongitude(float longitude) {
+    Capteur::longitude = longitude;
+}
+
+const list<Mesure *> &Capteur::getMesures() const {
+    return mesures;
+}
+
+void Capteur::setMesures(const list<Mesure *> &mesures) {
+    Capteur::mesures = mesures;
+}
+

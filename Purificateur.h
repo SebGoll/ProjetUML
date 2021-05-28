@@ -11,6 +11,9 @@ class Purificateur {
 
 public:
 
+    //Surcharge d'opérateurs
+    friend ostream & operator << (ostream & flux, const Purificateur & c);
+
     //Constructeurs
     Purificateur();
     Purificateur(const long &unId,const float &unLong,const float &unLa, const FournisseurPurificateur &unFournisseur, tm* &leDebut, tm* &laFin);

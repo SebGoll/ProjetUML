@@ -1,10 +1,12 @@
-//
-// Created by User on 07/05/2021.
-//
+/**
+    Gère les entrées utilisateurs du programme
+    @file Controller.cpp
+    @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna (B3201-B3209)
+*/
 #include <iostream>
 #include <string>
 #include "Vue.h"
-
+#include "Model.h"
 using namespace std;
 int droits;
 
@@ -54,8 +56,7 @@ int main() {
                 datedebut = lecture;
                 cin >> lecture;
                 datefin = lecture;
-                cout << "appel a model : calcul point avec lat= " << latitude << " et long=" << longitude << " de "
-                     << datedebut << " a " << datefin << endl;
+                QualiteAirPoint(latitude,longitude,datedebut,datefin);
                 val = 1;
 
 
@@ -78,8 +79,8 @@ int main() {
             }
 
         } else if (val == 2 && droits == 1) {
-            cout << "appel a model : liste des capteurs" << endl;
-            menuConsulterCapteur(/*Liste des Capteurs*/);
+            listerCapteurs();
+            menuConsulterCapteur();
             cin >> lecture;
             if (lecture == "aucun") {
                 continue;
@@ -118,7 +119,7 @@ int main() {
 
 
         } else if (val == 3 && droits == 1) {
-            cout << "appel a model : liste des purificateurs" << endl;
+            listerPurificateurs();
             menuConsulterPurificateurs(/*Liste Des Purificateurs*/);
             cin >> lecture;
             if (lecture == "aucun") {
