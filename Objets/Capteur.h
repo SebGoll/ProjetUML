@@ -23,6 +23,8 @@ public:
     //Méthodes publiques
     void ajouterMesure(Mesure *m);
 
+    float distance(float la,float lo);
+
     UtilisateurPrive getProprietaire() const;
 
     void setProprietaire(UtilisateurPrive proprietaire);
