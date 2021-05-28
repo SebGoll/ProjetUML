@@ -11,6 +11,22 @@ class Utilisateur {
 
 public:
 
+    //Getters/Setters
+    unsigned long getId() const;
+    void setId(unsigned long id);
+
+    const string &getNom() const;
+    void setNom(const string &nom);
+
+    const string &getPrenom() const;
+    void setPrenom(const string &prenom);
+
+    const string &getMail() const;
+    void setMail(const string &mail);
+
+    const string &getMdp() const;
+    void setMdp(const string &mdp);
+
     //Surcharge d'opérateurs
     friend ostream & operator << (ostream & flux, const Utilisateur &u);
 
@@ -20,7 +36,6 @@ public:
 
     //Destructeur
     virtual ~Utilisateur();
-
 
 protected:
     //Attributs privés
