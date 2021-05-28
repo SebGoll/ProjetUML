@@ -5,11 +5,20 @@
 #include "FournisseurPurificateur.h"
 #include <iostream>
 #include <ctime>
+#include <string>
 using namespace std;
 
 class Purificateur {
 
 public:
+
+    tm *getDateDebut() const;
+
+    void setDateDebut(tm *dateDebut);
+
+    tm *getDateFin() const;
+
+    void setDateFin(tm *dateFin);
 
     //Surcharge d'opérateurs
     friend ostream & operator << (ostream & flux, const Purificateur & c);

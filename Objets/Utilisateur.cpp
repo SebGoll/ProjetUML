@@ -7,7 +7,13 @@ ostream &operator<<(ostream &flux, const Utilisateur &u) {
 }
 
 /*Constructeurs*/
-Utilisateur::Utilisateur() {}
+Utilisateur::Utilisateur() {
+    this->id=-1;
+    this->nom="inconnu";
+    this->prenom="inconnu";
+    this->mail="inconnu";
+    this->mdp="inconnu";
+}
 
 Utilisateur::Utilisateur(const unsigned long &unId, const string &unNom, const string &unPrenom, const string &unMail, const string &unMdp){
     this->id=unId;
