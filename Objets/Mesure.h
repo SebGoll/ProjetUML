@@ -39,6 +39,14 @@ public:
     float getNo2() const;
 
     float getPm10() const;
+
+    void setO3(float o3);
+
+    void setNo2(float no2);
+
+    void setSo2(float so2);
+
+    void setPm10(float pm10);
     //PRIVE
 protected:
     //Méthodes protégées

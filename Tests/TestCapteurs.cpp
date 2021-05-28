@@ -31,6 +31,17 @@ int main() {
     testModificationCapteur(mainCapteur);
     testValParam(mainCapteur);
 
+    Mesure **listMesure = new Mesure *[10];
+    for (int i = 0; i < 10; ++i) {
+        string date = to_string(2000 + i);
+        date.append("-01-01 12:00:00");
+        listMesure[i] = new Mesure(date, i * 10, i * 10, i * 10, i * 10);
+//        cout<<*listMesure[i]<<endl;
+    }
+
+
+
+
     //Tests de destruction des capteurs
     testDestructeur(mainCapteur);
     testDestructeur(captConstrVide);

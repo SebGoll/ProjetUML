@@ -9,6 +9,7 @@
 #include "Objets/Mesure.h"
 #include "Objets/Capteur.h"
 #include "Vue.h"
+#include <ctime>
 using namespace std;
 
 void genererListeCapteurs();
@@ -20,7 +21,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin);
 void listerCapteurs();
 void listerPurificateurs();
 list<Capteur> determinerCapteursProches(double latitude, double longitude);
-int determinerQualiteMoyenne(Capteur monCapteur);
+int determinerQualiteMoyenne(Capteur monCapteur, tm dated, tm datef);
 int determinerQualite(Mesure maMesure);
 
 #endif //PROJETUML_MODEL_H
