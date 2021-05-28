@@ -21,22 +21,27 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     troiscapteursproches[2]= new Capteur();
     float d1=1000,d2=1000,d3=1000;
     float dactuel;
+
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
+
         dactuel= (*it)->distance(latitude,longitude);
+        cout << (**it).getId() << " " << dactuel<<endl;
         if (dactuel<max(max(d1,d2),d3)) {
             if (max(max(d1, d2), d3) == d1) {
                 d1 = dactuel;
                 troiscapteursproches[0] = (*it);
+                cout <<" d1 " << (**it).getId() << " " << dactuel<<endl;
             } else if (max(max(d1, d2), d3) == d2) {
                 d2 = dactuel;
                 troiscapteursproches[1] = (*it);
+                cout << " d2 "<<(**it).getId() << " " << dactuel<<endl;
             } else {
                 d3 = dactuel;
                 troiscapteursproches[2] = (*it);
+                cout << " d3 "<<(**it).getId() << " " << dactuel<<endl;
             }
         }
     }
-
     int v1,v2,v3;
     v1= determinerQualiteMoyenne(*troiscapteursproches[0]);
     v2= determinerQualiteMoyenne(*troiscapteursproches[1]);
