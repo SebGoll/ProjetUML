@@ -20,7 +20,6 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     troiscapteursproches[1]= new Capteur();
     troiscapteursproches[2]= new Capteur();
     float d1=1000,d2=1000,d3=1000;
-
     float dactuel;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         dactuel= (*it)->distance(latitude,longitude);
@@ -35,10 +34,7 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
             } else {
                 d3=dactuel;
                 troiscapteursproches[2]=(*it);
-
             }
-
-
     }
 
     int v1,v2,v3;
@@ -104,7 +100,6 @@ void genererListeCapteurs(){
         exit(1);
     }
     while(fileToRead.peek()!=EOF){
-
         getline(fileToRead,id,';');
         getline(fileToRead,longitude,';');
         getline(fileToRead,latitude, ';');
@@ -144,12 +139,14 @@ void genererListeMesures(){
         if (i == 4){
             m = new Mesure(date, stoi(mesure[0]),stoi(mesure[1]),stoi(mesure[2]),stoi(mesure[3]) );
             listMesures.push_back(m);
+            int idCapteur = stoi(id.erase(0,toErase.length()));
             for (Capteur* c:listCapteurs){
-                if (c->getId()== stoi(id.erase(0,toErase.length()))){
+                if (c->getId()== idCapteur){
                     c->ajouterMesure(m);
                 }
             }
             i=0;
+            cout << "Mesures" << m->getSo2() <<";"<< m->getPm10() <<";" << m->getO3() <<";"<< m->getNo2() <<endl;
         }
     }
     fileToRead.close();
@@ -164,6 +161,7 @@ void QualiteAirPoint(double latitude, double longitude, string dateDebut, string
 
 void listerCapteurs() {
     genererListeCapteurs();
+    genererListeMesures();
     resultatListeCapteur(listCapteurs);
 }
 
