@@ -13,6 +13,81 @@ list<Capteur*> listCapteurs;
 list<Purificateur*> listPurificateurs;
 list<Mesure*> listMesures;
 
+
+void QualiteAirPoint(float latitude, float longitude, string dateDebut, string dateFin) {
+    Capteur* troiscapteursproches[3];
+    troiscapteursproches[0]= new Capteur();
+    troiscapteursproches[1]= new Capteur();
+    troiscapteursproches[2]= new Capteur();
+    float d1=1000,d2=1000,d3=1000;
+    float dactuel;
+    for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
+        dactuel= (*it)->distance(latitude,longitude);
+        if (dactuel<max(max(d1,d2),d3)){
+            if(max(max(d1,d2),d3)==d1) {
+                d1=dactuel;
+                troiscapteursproches[0]=(*it);
+            }
+            } else  if(max(max(d1,d2),d3)==d2){
+                d2=dactuel;
+                troiscapteursproches[1]=(*it);
+            } else {
+                d3=dactuel;
+                troiscapteursproches[2]=(*it);
+            }
+    }
+
+    int v1,v2,v3;
+    v1= determinerQualiteMoyenne(*troiscapteursproches[0]);
+    v2= determinerQualiteMoyenne(*troiscapteursproches[1]);
+    v3= determinerQualiteMoyenne(*troiscapteursproches[2]);
+    float vfinal = d1*v1 +d2*v2 +d3*v3;
+    vfinal/=d1+d2+d3;
+    resultatQualiteEnPoint(vfinal);
+
+}
+
+
+
+void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
+
+    Capteur capteuracomparer;
+    for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
+        if((*it)->getId()==idCapteur){
+            capteuracomparer=*(*it);
+        }
+    }
+    list<Mesure*> mesurescapteurPrincipal =capteuracomparer.getMesures();
+    int qualitesenchaquemesure[mesurescapteurPrincipal.size()];
+    int i=0;
+    for(list<Mesure*>::iterator it=mesurescapteurPrincipal.begin(); it!=mesurescapteurPrincipal.end();it++){
+        qualitesenchaquemesure[i]= determinerQualite(**it);
+        i++;
+    }
+    int score;
+    int scores[listCapteurs.size()];
+    int j=0;
+    for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
+        score=0;
+        i=0;
+
+        if((*it)->getId()!=idCapteur){
+            list<Mesure*> mesmesures =(**it).getMesures();
+
+            for(list<Mesure*>::iterator m=mesmesures.begin(); m!=mesmesures.end();m++){
+                score+= abs(qualitesenchaquemesure[i]-determinerQualite(**m));
+                i++;
+            }
+        }
+        scores[j]=score;
+        j++;
+    }
+
+}
+
+
+
+
 void genererListeCapteurs(){
     ifstream fileToRead;
     string id;
@@ -25,14 +100,16 @@ void genererListeCapteurs(){
         exit(1);
     }
     while(fileToRead.peek()!=EOF){
-
         getline(fileToRead,id,';');
         getline(fileToRead,longitude,';');
-        getline(fileToRead,latitude);
+        getline(fileToRead,latitude, ';');
+        fileToRead.ignore();
+        cout << id << "-"<< longitude << "-"<< latitude <<endl;
         Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stoi(longitude), stoi(latitude));
 
         listCapteurs.push_back(c);
     }
+    cout <<"done";
     fileToRead.close();
 }
 
@@ -47,7 +124,7 @@ void genererListeMesures(){
     string latitude;
     string toErase = "Sensor";
     Mesure *m;
-    fileToRead.open("Data/cleaners.csv");
+    fileToRead.open("Data/measurements.csv");
     if (!fileToRead) {
         cerr <<"Echec de l'ouverture du fichier";
         exit(1);
@@ -56,17 +133,20 @@ void genererListeMesures(){
         getline(fileToRead,date,';');
         getline(fileToRead,id,';');
         getline(fileToRead,mesureType,';');
-        getline(fileToRead,mesure[i]);
+        getline(fileToRead,mesure[i],';');
+        fileToRead.ignore();
         i++;
         if (i == 4){
             m = new Mesure(date, stoi(mesure[0]),stoi(mesure[1]),stoi(mesure[2]),stoi(mesure[3]) );
-        }
-
-        listMesures.push_back(m);
-        for (Capteur* c:listCapteurs){
-            if (c->getId()== stoi(id.erase(0,toErase.length()))){
-                c->ajouterMesure(m);
+            listMesures.push_back(m);
+            int idCapteur = stoi(id.erase(0,toErase.length()));
+            for (Capteur* c:listCapteurs){
+                if (c->getId()== idCapteur){
+                    c->ajouterMesure(m);
+                }
             }
+            i=0;
+            cout << "Mesures" << m->getSo2() <<";"<< m->getPm10() <<";" << m->getO3() <<";"<< m->getNo2() <<endl;
         }
     }
     fileToRead.close();
@@ -81,6 +161,7 @@ void QualiteAirPoint(double latitude, double longitude, string dateDebut, string
 
 void listerCapteurs() {
     genererListeCapteurs();
+    genererListeMesures();
     resultatListeCapteur(listCapteurs);
 }
 
@@ -96,7 +177,10 @@ int determinerQualiteMoyenne(Capteur monCapteur){
     for(list<Mesure*>::iterator it=mesmesures.begin(); it!=mesmesures.end();it++){
         moyenne+= determinerQualite(**it);
     }
-    moyenne/=mesmesures.size();
+    if(mesmesures.size()!=0){
+        moyenne/=mesmesures.size();
+    }
+
 
 
     return moyenne;
