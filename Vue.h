@@ -25,6 +25,6 @@ void menuDemandeDates();
 
 
 void resultatQualiteEnPoint(int Qualite);
-void resultatListeCapteur(list<Capteur> tousCapteurs);
+void resultatListeCapteur(list<Capteur*> tousCapteurs);
 void resultatListePurificateur(list<Purificateur> tousPurificateurs);
 #endif //PROJETUML_VUE_H

@@ -5,6 +5,9 @@
 #include "Capteur.h"
 
 Capteur::Capteur(){
+    this->id=0;
+    this->latitude=0.0;
+    this->longitude=0.0;
     this->fiable=true;
 }
 
@@ -17,8 +20,15 @@ Capteur::Capteur(unsigned long id, float latitude, float longitude) : id(id), la
 }
 
 ostream &operator<<(ostream &flux, const Capteur &c) {
+
+    flux <<  "Capteur numero " << c.getId()<<"\tLat="<<c.getLatitude()<<"\tLong="<<c.getLongitude()<<endl;
+    if(c.isFiable()){
+        flux<<"Ce capteur est fiable"<<endl;
+    }else{
+        flux<<"Ce capteur est non-fiable"<<endl;
+    }
     string s = "Capteur n°";
-    flux <<  "Capteur n°" << c.id<<"\tLat="<<c.latitude<<"\tLong="<<c.longitude;
+    flux <<  "Capteur " << c.id<<"  Lat="<<c.latitude<<"  Long="<<c.longitude;
     return flux;
 }
 

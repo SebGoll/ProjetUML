@@ -99,10 +99,10 @@ void resultatQualiteEnPoint(int Qualite) {
 
 }
 
-void resultatListeCapteur(list<Capteur> tousCapteurs){
+void resultatListeCapteur(list<Capteur*> tousCapteurs){
     cout << "Liste des capteurs :" << endl;
-    for (list<Capteur>::iterator it=tousCapteurs.begin();it!=tousCapteurs.end();it++){
-        cout << *it <<  endl;
+    for (list<Capteur*>::iterator it=tousCapteurs.begin();it!=tousCapteurs.end();it++){
+        cout << (*(*it)) <<  endl;
     }
     cout << endl <<endl;
 }
@@ -110,6 +110,7 @@ void resultatListePurificateur(list<Purificateur> tousPurificateurs){
     cout << "Liste des purificateurs :" << endl;
     for (list<Purificateur>::iterator it=tousPurificateurs.begin();it!=tousPurificateurs.end();it++){
         cout << *it <<  endl;
+
     }
     cout << endl <<endl;
 }
