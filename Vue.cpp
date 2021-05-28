@@ -54,7 +54,7 @@ void menuQualiteAir() {
 
 void menuQualiteAirPoint() {
     cout
-            << "Inserer la longitude et la latitude, ainsi que la date de debut et la date de fin de la periode a moyenner:"
+            << "Inserer la longitude et la latitude, ainsi que la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):"
             << endl;
 }
 
