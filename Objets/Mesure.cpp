@@ -35,7 +35,6 @@ Mesure::Mesure(const string& dateString, float o3, float no2, float so2, float p
     this->date.tm_hour = stoi(dateString.substr(11, 2));
     this->date.tm_min = stoi(dateString.substr(14, 2));
     this->date.tm_sec = stoi(dateString.substr(17, 2));
-    cout<<asctime(&this->date);
 
 }
 
@@ -45,6 +44,22 @@ Mesure::~Mesure() {
 
 float Mesure::getO3() const {
     return o3;
+}
+
+void Mesure::setO3(float o3) {
+    Mesure::o3 = o3;
+}
+
+void Mesure::setNo2(float no2) {
+    Mesure::no2 = no2;
+}
+
+void Mesure::setSo2(float so2) {
+    Mesure::so2 = so2;
+}
+
+void Mesure::setPm10(float pm10) {
+    Mesure::pm10 = pm10;
 }
 
 float Mesure::getNo2() const {
@@ -61,7 +76,7 @@ float Mesure::getSo2() const {
 
 ostream &operator<<(ostream &flux, const Mesure &m) {
     tm dateMesure = m.getDate();
-    flux <<  "Mesure prise le " << asctime(&dateMesure)<<"\nO3="<<m.getO3()<<"\tNo2="<<m.getNo2()<<"\tSo2="<<m.getSo2()<<"\tPm10="<<m.getPm10()<<endl;
+    flux <<  "Mesure prise le " << asctime(&dateMesure)<<"O3="<<m.getO3()<<"\tNo2="<<m.getNo2()<<"\tSo2="<<m.getSo2()<<"\tPm10="<<m.getPm10()<<endl;
     return flux;
 }
 
