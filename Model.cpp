@@ -14,6 +14,9 @@ list<Capteur*> listCapteurs;
 list<Purificateur*> listPurificateurs;
 list<Mesure*> listMesures;
 
+int compare(const void *a, const void *b){
+    return (  *((int*)a+1) - *((int*)b+1)  );
+}
 
 void QualiteAirPoint(float latitude, float longitude, string dateDebut, string dateFin) {
 
@@ -80,6 +83,26 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
 
 void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
 
+    dateDebut.append(" 12:00:00");
+    dateFin.append(" 12:00:00");
+    time_t now = time(0);
+    tm dated = *localtime(&now);
+    dated.tm_year = stoi(dateDebut.substr(0, 4)) - 1900;
+    dated.tm_mon = stoi(dateDebut.substr(5, 2)) - 1;
+    dated.tm_mday = stoi(dateDebut.substr(8, 2));
+    dated.tm_hour = stoi(dateDebut.substr(11, 2));
+    dated.tm_min = stoi(dateDebut.substr(14, 2));
+    dated.tm_sec = stoi(dateDebut.substr(17, 2));
+
+
+    tm datef = *localtime(&now);
+    datef.tm_year = stoi(dateFin.substr(0, 4)) - 1900;
+    datef.tm_mon = stoi(dateFin.substr(5, 2)) - 1;
+    datef.tm_mday = stoi(dateFin.substr(8, 2));
+    datef.tm_hour = stoi(dateFin.substr(11, 2));
+    datef.tm_min = stoi(dateFin.substr(14, 2));
+    datef.tm_sec = stoi(dateFin.substr(17, 2));
+
     Capteur capteuracomparer;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         if((*it)->getId()==idCapteur){
@@ -94,7 +117,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
         i++;
     }
     int score;
-    int *scores= new int[listCapteurs.size()];
+    int scores[listCapteurs.size()][2];
     int j=0;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         score=0;
@@ -104,13 +127,27 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
             list<Mesure*> mesmesures =(**it).getMesures();
 
             for(list<Mesure*>::iterator m=mesmesures.begin(); m!=mesmesures.end();m++){
-                score+= abs(qualitesenchaquemesure[i]-determinerQualite(**m));
-                i++;
+                tm datemesure = (**m).getDate();
+                if(difftime(mktime(&datemesure),mktime(&dated))>=0 && (difftime(mktime(&datef),mktime(&datemesure))>=0)) {
+                    score+= abs(qualitesenchaquemesure[i]-determinerQualite(**m));
+                    i++;
+                }
+
             }
         }
-        scores[j]=score;
+        scores[j][1]=score;
+        scores[j][0]=(*it)->getId();
+
         j++;
     }
+    qsort(scores,listCapteurs.size(),2*sizeof (int),compare);
+    int *scoreonly = new int[listCapteurs.size()];
+    int *idsonly = new int[listCapteurs.size()];
+    for(int i=0;i<listCapteurs.size();i++){
+        scoreonly[i]=scores[i][1];
+        idsonly[i]=scores[i][0];
+    }
+    resultatCapteursSimilaires(scoreonly,idsonly,listCapteurs.size());
 
 }
 
@@ -242,7 +279,7 @@ void listerCapteurs() {
 
 void listerPurificateurs() {
 
-//    resultatListePurificateur(listPurificateurs);
+    resultatListePurificateur(listPurificateurs);
 }
 
 int determinerQualiteMoyenne(Capteur monCapteur, tm dated, tm datef){
