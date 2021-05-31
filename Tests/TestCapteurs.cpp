@@ -1,9 +1,11 @@
 
 #include <iostream>
+#include <list>
 #include "../Objets/Capteur.h"
 #include "../Objets/Mesure.h"
 #include <assert.h>
 #include "../Objets/UtilisateurPrive.h"
+using namespace std;
 
 Capteur *testCapteurConstr2();
 
@@ -31,13 +33,14 @@ int main() {
     testModificationCapteur(mainCapteur);
     testValParam(mainCapteur);
 
-    Mesure **listMesure = new Mesure *[10];
+    list <Mesure*> lm;
     for (int i = 0; i < 10; ++i) {
         string date = to_string(2000 + i);
         date.append("-01-01 12:00:00");
-        listMesure[i] = new Mesure(date, i * 10, i * 10, i * 10, i * 10);
-//        cout<<*listMesure[i]<<endl;
+        lm.push_back(new Mesure(date, i * 10, i * 10, i * 10, i * 10));
+
     }
+
 
 
 
@@ -80,6 +83,11 @@ void testModificationCapteur(Capteur *ptrC) {
     ptrC->setLatitude(100.0);
     ptrC->setLongitude(100.0);
     ptrC->setFiable(false);
+    cout << "Valeurs modifies" << endl;
+}
+
+void testAjoutMesuresParList(Capteur *ptrC, Mesure **) {
+
     cout << "Valeurs modifies" << endl;
 }
 
