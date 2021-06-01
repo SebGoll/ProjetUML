@@ -65,7 +65,7 @@ void menuQualiteAirZone() {
 }
 
 void menuDemandeDates() {
-    cout << "Inserer la date de debut et la date de fin de la periode a moyenner:" << endl;
+    cout << "Inserer la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):" << endl;
 }
 
 void menuConsulterCapteur() {
@@ -106,11 +106,23 @@ void resultatListeCapteur(list<Capteur*> tousCapteurs){
     }
     cout << endl <<endl;
 }
-void resultatListePurificateur(list<Purificateur> tousPurificateurs){
+void resultatListePurificateur(list<Purificateur*> tousPurificateurs){
     cout << "Liste des purificateurs :" << endl;
-    for (list<Purificateur>::iterator it=tousPurificateurs.begin();it!=tousPurificateurs.end();it++){
-        cout << *it <<  endl;
+    for (list<Purificateur*>::iterator it=tousPurificateurs.begin();it!=tousPurificateurs.end();it++){
+        cout << **it <<  endl;
 
     }
     cout << endl <<endl;
 }
+
+void resultatCapteursSimilaires( int * scores,int *ids,int taille){
+    cout << "id | score de difference"  << endl;
+    for(int i =0;i< taille;i++){
+        if(ids[i]/10==0){
+            cout<<" ";
+        }
+        cout << ids[i] <<"            " << scores[i] << endl;
+    }
+
+}
+
