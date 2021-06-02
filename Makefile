@@ -4,8 +4,8 @@ ECHO=echo
 CCFLAGS=-c
 CFLAGS= -Wall -ansi -pedantic -std=c++11
 DFLAGS = 
-OBJETS= Capteur.o Controller.o FournisseurPurificateur.o Mesure.o Model.o Purificateur.o Utilisateur.o UtilisateurGouvernement.o UtilisateurPrive.o Vue.o
-OBJETSTEST= Capteur.o TestMesuresCapteurs.o FournisseurPurificateur.o Mesure.o Model.o Purificateur.o Utilisateur.o UtilisateurGouvernement.o UtilisateurPrive.o Vue.o
+OBJETS= Objets/Capteur.o Controller.o Objets/FournisseurPurificateur.o Objets/Mesure.o Model.o Objets/Purificateur.o Objets/Utilisateur.o Objets/UtilisateurGouvernement.o Objets/UtilisateurPrive.o Vue.o
+OBJETSTEST= Objets/Capteur.o TestMesuresCapteurs.o FournisseurPurificateur.o Mesure.o Model.o Purificateur.o Utilisateur.o UtilisateurGouvernement.o UtilisateurPrive.o Vue.o
 EXE=main
 
 debug: DFLAGS = -DMAP
