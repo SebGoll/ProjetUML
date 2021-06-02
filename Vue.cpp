@@ -1,8 +1,7 @@
-/** @file Vue.cpp
- *
-    Gère l'affichage des menus du programme
-
-    @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna (B3201-B3209)
+/**
+ *   Gère l'affichage des menus du programme
+ *   @file Vue.cpp
+ *   @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna (B3201-B3209)
 */
 
 #include <iostream>
@@ -145,3 +144,14 @@ void retourPasDeCapteurs(){
     cout << "Aucun Capteur a comparer\n"
          << "Retour au menu principal " << endl;
 }
+
+void retourMauvaisesCoordonnees(){
+    cout << "Mauvaises coordonnees, en dehors du perimetre mesure\n"
+         << "Retour au menu principal " << endl;
+}
+
+void retourCapteurInexistant(){
+    cout << "L'id renseigne ne correspond a aucun capteur\n"
+         << "Retour au menu principal " << endl;
+}
+
