@@ -24,21 +24,21 @@ void mainMenu() {
 
             cout << "1-Voir la qualite de l'air \n"
                     "2-Consulter les capteurs\n"
-                    "3-Consulter les purificateurs\n"
+                    "3-Consulter les purificateurs(pas implemente)\n"
                     "4-Quitter" << endl;
             break;
 
         case 2:
 
             cout << "1-Voir la qualite de l'air \n"
-                    "2-Consulter son compte\n"
+                    "2-Consulter son compte(pas implemente)\n"
                     "3-Quitter" << endl;
             break;
 
         case 3:
 
             cout << "1-Voir la qualite de l'air \n"
-                    "2-Consulter ses purificateurs\n"
+                    "2-Consulter ses purificateurs(pas implemente)\n"
                     "3-Quitter" << endl;
             break;
 
@@ -64,7 +64,7 @@ void MauvaisesDates(){
 }
 void menuQualiteAir() {
     cout << "1.1-Voir la qualite de l'air en un point\n"
-            "1.2-Voir la qualite de l'air en une zone\n"
+            "1.2-Voir la qualite de l'air en une zone(pas implemente)\n"
             "1.3-Retour au menu"<< endl;
 }
 
@@ -92,7 +92,7 @@ void menuConsulterCapteur() {
 void menuConsulterDetailsCapteur() {
     cout << "Menu" << endl;
     cout << "2.1-Consulter les capteurs similaires\n"
-            "2.2-Voir si un capteur est défectueux" << endl;
+            "2.2-Voir si un capteur est défectueux(pas implemente)" << endl;
 }
 
 
