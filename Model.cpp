@@ -139,7 +139,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
 
         if(difftime(mktime(&datemesure),mktime(&dated))>=0 && (difftime(mktime(&datef),mktime(&datemesure))>=0)) {
             qualitesenchaquemesure[i]= determinerQualite(**it);
-            cout << qualitesenchaquemesure[i] << " | " ;
+
             i++;
         }
 
