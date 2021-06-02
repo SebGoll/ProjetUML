@@ -165,13 +165,13 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
 
 }
 
-void genererListeCapteurs(){
+void genererListeCapteurs(string dataPath){
     ifstream fileToRead;
     string id;
     string longitude;
     string latitude;
     string toErase = "Sensor";
-    fileToRead.open("Data/sensors.csv");
+    fileToRead.open(dataPath);
     if (!fileToRead) {
         cerr <<"Echec de l'ouverture du fichier";
         exit(1);
@@ -188,7 +188,7 @@ void genererListeCapteurs(){
     fileToRead.close();
 }
 
-void genererListeMesures(){
+void genererListeMesures(string dataPath){
     ifstream fileToRead;
     string date;
     string id;
@@ -197,7 +197,7 @@ void genererListeMesures(){
     int i = 0;
     string toErase = "Sensor";
     Mesure *m;
-    fileToRead.open("Data/measurements.csv");
+    fileToRead.open(dataPath);
     if (!fileToRead) {
         cerr <<"Echec de l'ouverture du fichier";
         exit(1);
