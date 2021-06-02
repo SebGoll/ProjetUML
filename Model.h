@@ -39,14 +39,6 @@ void listerCapteurs();
 /** Envoie la liste des purificateurs a la vue */
 void listerPurificateurs();
 
-/**
- *
- * @param latitude du capteur
- * @param longitude du capteur
- * @return la liste des capteurs les plus proches
- */
-list<Capteur> determinerCapteursProches(double latitude, double longitude); //la fonction est utilisée ou pas?
-
 /** Qualité de l'air moyenne
  *
  * @param monCapteur : le capteur associé
@@ -62,7 +54,5 @@ int determinerQualiteMoyenne(Capteur monCapteur, tm dated, tm datef);
  * @return qualite de l'air
  */
 int determinerQualite(Mesure maMesure);
-
-
 
 #endif //PROJETUML_MODEL_H
