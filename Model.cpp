@@ -1,6 +1,11 @@
-//
-// Created by User on 07/05/2021.
-//
+/** @file Model.cpp
+ *
+ *  Classe Modele de l'architecture MVC qui
+ *  s'occupe des donnees a stocker et afficher.
+ *
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ *  @date 07/05/2021
+ */
 
 #include "Model.h"
 #include <list>
