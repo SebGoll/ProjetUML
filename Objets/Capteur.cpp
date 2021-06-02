@@ -1,6 +1,9 @@
-//
-// Created by Seb on 07/05/2021.
-//
+/**
+ *  Objet Capteur
+ *  @file Capteur.cpp
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
+
 
 #include "Capteur.h"
 #include <cmath>

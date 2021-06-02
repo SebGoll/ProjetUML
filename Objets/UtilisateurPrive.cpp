@@ -1,3 +1,8 @@
+/**
+ *  Objet UtilisateurPrive heritant de Utilisateur
+ *  @file UtilisateurPrive.cpp
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 #include "UtilisateurPrive.h"
 
 /*Constructeurs*/

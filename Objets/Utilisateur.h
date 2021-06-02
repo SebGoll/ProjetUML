@@ -1,4 +1,8 @@
-//Interface de la classe <Utilisateur> (Utilisateur.h)
+/**
+ *  Interface de l'Objet Utilisateur
+ *  @file Utilisateur.h
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 
 #ifndef PROJETUML_UTILISATEUR_H
 #define PROJETUML_UTILISATEUR_H

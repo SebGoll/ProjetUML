@@ -1,3 +1,8 @@
+/**
+ *  Objet Utilisateur
+ *  @file Utilisateur.cpp
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 #include "Utilisateur.h"
 
 //Surcharge d'opérateurs

@@ -1,4 +1,8 @@
-//Interface de la classe <FournisseurPurificateur> (FournisseurPurificateur.h)
+/**
+ *  Interface de l'Objet FournisseurPurificateur
+ *  @file FournisseurPurificateur.h
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 
 #ifndef PROJETUML_FOURNISSEURPURIFICATEUR_H
 #define PROJETUML_FOURNISSEURPURIFICATEUR_H

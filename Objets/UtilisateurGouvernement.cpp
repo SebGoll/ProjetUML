@@ -1,3 +1,8 @@
+/**
+ *  Objet UtilisateurGouvernement heritant de Utilisateur
+ *  @file UtilisateurGouvernement.cpp
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 #include "UtilisateurGouvernement.h"
 
 /*Constructeurs*/

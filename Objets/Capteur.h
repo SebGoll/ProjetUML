@@ -1,4 +1,9 @@
-//Interface de la classe <Capteur> (fichier Capteur.h)
+/**
+ *  Interface de l'Objet Capteur
+ *  @file Capteur.h
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
+
 #ifndef PROJETUML_CAPTEUR_H
 #define PROJETUML_CAPTEUR_H
 
@@ -20,11 +25,21 @@ class Capteur {
     //PUBLIC
 public:
 
-    //Méthodes publiques
+    /**
+     * Pour remplir la liste de mesures
+     * @param m
+     */
     void ajouterMesure(Mesure *m);
 
+    /**
+     * Distance entre l'origine (latitude 0, longitude 0) et les coordonées données
+     * @param latitude
+     * @param longitude
+     * @return
+     */
     float distance(float la,float lo);
 
+    //Getters/Setters
     UtilisateurPrive getProprietaire() const;
 
     void setProprietaire(UtilisateurPrive proprietaire);

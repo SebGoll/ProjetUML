@@ -1,3 +1,8 @@
+/**
+ *  Objet Purificateur
+ *  @file Purificateur.cpp
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 #include "Purificateur.h"
 #include "FournisseurPurificateur.h"
 

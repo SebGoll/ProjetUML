@@ -1,5 +1,8 @@
-//Interface de la classe <UtilisateurGouvernement> (UtilisateurGouvernement.h)
-
+/**
+ *  Interface de l'Objet UtilisateurGouvernement heritant de Utilisateur
+ *  @file UtilisateurGouvernement.h
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 #ifndef PROJETUML_UTILISATEURGOUVERNEMENT_H
 #define PROJETUML_UTILISATEURGOUVERNEMENT_H
 #include <iostream>

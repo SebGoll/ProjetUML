@@ -1,5 +1,8 @@
-//Interface de la classe <Purificateur> (Purificateur.h)
-
+/**
+ *  Interface de l'Objet Purificateur
+ *  @file Purificateur.h
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 #ifndef PROJETUML_PURIFICATEUR_H
 #define PROJETUML_PURIFICATEUR_H
 #include "FournisseurPurificateur.h"
@@ -11,7 +14,7 @@ using namespace std;
 class Purificateur {
 
 public:
-
+    //Getters/Setters
     tm getDateDebut() const;
     void setDateDebut(tm dateDebut);
 

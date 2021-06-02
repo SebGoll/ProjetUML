@@ -1,10 +1,7 @@
-/** @file Model.cpp
- *
- *  Classe Modele de l'architecture MVC qui
- *  s'occupe des donnees a stocker et afficher.
- *
+/**
+ *  Classe Modele de l'architecture MVC qui s'occupe des donnees a stocker et afficher.
+ *  @file Model.h
  *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
- *  @date 07/05/2021
  */
 
 #ifndef PROJETUML_MODEL_H
