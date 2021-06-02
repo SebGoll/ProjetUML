@@ -11,6 +11,7 @@ int main(){
 }
 
 void test0(){
+    //cout<<"Test Qualite Air Point 0 : Test normal"<<endl;
     genererListeCapteurs("Data/DataSetTest-QualiteAirPoint/sensorTest0.csv");
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     QualiteAirPoint(45,5, "2019-01-01 12:00:00", "2021-02-20 12:00:00");
