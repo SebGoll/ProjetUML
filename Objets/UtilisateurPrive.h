@@ -1,5 +1,8 @@
-//Interface de la classe <UtilisateurPrive> (UtilisateurPrive.h)
-
+/**
+ *  Interface de l'Objet UtilisateurPrive heritant de Utilisateur
+ *  @file UtilisateurPrive.h
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
 #ifndef PROJETUML_UTILISATEURPRIVE_H
 #define PROJETUML_UTILISATEURPRIVE_H
 #include <iostream>

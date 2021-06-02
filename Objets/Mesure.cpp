@@ -1,3 +1,10 @@
+/**
+ *  Objet Mesure qui sera associee a un capteur
+ *  @file Mesure.cpp
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
+
+
 #include "Mesure.h"
 
 

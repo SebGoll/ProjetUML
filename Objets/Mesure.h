@@ -1,4 +1,9 @@
-//Interface de la classe <Mesure> (fichier Mesure.h)
+/**
+ *  Interface de l'Objet Mesure qui sera associee a un capteur
+ *  @file Mesure.h
+ *  @author ABHAY Annie, GOLL Sebastien, HASENFRATZ Louis, NGOV Sophanna
+ */
+
 #ifndef PROJETUML_MESURE_H
 #define PROJETUML_MESURE_H
 
@@ -18,19 +23,10 @@ using namespace std;
 class Mesure {
     //PUBLIC
 public:
+    //Getters/Setters
     tm getDate() const;
 
     void setDate(tm date);
-
-    friend ostream & operator << (ostream & flux, const Mesure & m);
-
-    Mesure();
-
-    Mesure(tm date, float o3, float no2, float so2, float pm10);
-
-    Mesure(const string& date, float o3, float no2, float so2, float pm10);
-
-    virtual ~Mesure();
 
     float getSo2() const;
 
@@ -47,6 +43,18 @@ public:
     void setSo2(float so2);
 
     void setPm10(float pm10);
+
+    //Surchages d'operateurs
+    friend ostream & operator << (ostream & flux, const Mesure & m);
+
+    //Contructeurs/Destructeurs
+    Mesure();
+
+    Mesure(tm date, float o3, float no2, float so2, float pm10);
+
+    Mesure(const string& date, float o3, float no2, float so2, float pm10);
+
+    virtual ~Mesure();
     //PRIVE
 protected:
     //Méthodes protégées
