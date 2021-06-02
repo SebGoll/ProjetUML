@@ -28,6 +28,8 @@ void MauvaisesDates();
 void ErreurHorsMesure();
 void retourPasDeCapteurs();
 void retourMauvaisesCoordonnees();
+void retourCapteurInexistant();
+
 
 //Methodes pour afficher des valeurs liées aux données
 void resultatQualiteEnPoint(int Qualite);

@@ -97,6 +97,10 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
         retourPasDeCapteurs();
         return;
     }
+    if(idCapteur<0 || idCapteur>99){
+        retourCapteurInexistant();
+        return;
+    }
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
     time_t now = time(0);

@@ -149,3 +149,9 @@ void retourMauvaisesCoordonnees(){
     cout << "Mauvaises coordonnees, en dehors du perimetre mesure\n"
          << "Retour au menu principal " << endl;
 }
+
+void retourCapteurInexistant(){
+    cout << "L'id renseigne ne correspond a aucun capteur\n"
+         << "Retour au menu principal " << endl;
+}
+
