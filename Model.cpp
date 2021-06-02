@@ -21,7 +21,9 @@ int compare(const void *a, const void *b){
 
 void QualiteAirPoint(float latitude, float longitude, string dateDebut, string dateFin) {
 
-
+    if(latitude<43 || latitude>48.6 || longitude<-2 || longitude>6.3){
+        retourMauvaisesCoordonnees();
+    }
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
     time_t now = time(0);

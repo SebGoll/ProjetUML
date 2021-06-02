@@ -144,3 +144,8 @@ void retourPasDeCapteurs(){
     cout << "Aucun Capteur a comparer\n"
          << "Retour au menu principal " << endl;
 }
+
+void retourMauvaisesCoordonnees(){
+    cout << "Mauvaises coordonnees, en dehors du perimetre mesure\n"
+         << "Retour au menu principal " << endl;
+}

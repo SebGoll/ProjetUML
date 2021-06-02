@@ -27,6 +27,7 @@ void ErreurSaisie();
 void MauvaisesDates();
 void ErreurHorsMesure();
 void retourPasDeCapteurs();
+void retourMauvaisesCoordonnees();
 
 //Methodes pour afficher des valeurs liées aux données
 void resultatQualiteEnPoint(int Qualite);
