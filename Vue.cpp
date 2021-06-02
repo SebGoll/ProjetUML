@@ -139,3 +139,8 @@ void resultatCapteursSimilaires( int * scores,int *ids,int taille){
 
 }
 
+
+void retourPasDeCapteurs(){
+    cout << "Aucun Capteur a comparer\n"
+         << "Retour au menu principal " << endl;
+}

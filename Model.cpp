@@ -88,6 +88,11 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
 
 void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
 
+
+    if(listCapteurs.size()<=1){
+        retourPasDeCapteurs();
+        return
+    }
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
     time_t now = time(0);

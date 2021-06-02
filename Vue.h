@@ -25,7 +25,7 @@ void menuDemandeDates();
 void ErreurSaisie();
 void MauvaisesDates();
 void ErreurHorsMesure();
-
+void retourPasDeCapteurs();
 void resultatQualiteEnPoint(int Qualite);
 void resultatListeCapteur(list<Capteur*> tousCapteurs);
 void resultatListePurificateur(list<Purificateur*> tousPurificateurs);
