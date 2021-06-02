@@ -184,6 +184,7 @@ void genererListeCapteurs(string dataPath){
         cerr <<"Echec de l'ouverture du fichier";
         exit(1);
     }
+    listCapteurs.clear();
     while(fileToRead.peek()!=EOF){
         getline(fileToRead,id,';');
         getline(fileToRead,longitude,';');
@@ -210,6 +211,7 @@ void genererListeMesures(string dataPath){
         cerr <<"Echec de l'ouverture du fichier";
         exit(1);
     }
+    listMesures.clear();
     while(fileToRead.peek()!=EOF){
         getline(fileToRead,date,';');
         getline(fileToRead,id,';');
