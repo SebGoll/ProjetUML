@@ -47,9 +47,25 @@ void mainMenu() {
 
 }
 
+void ErreurSaisie(){
+    cout << "Erreur lors de la saisie\n"
+         << "Retour au menu principal " << endl;
+
+}
+
+void ErreurHorsMesure(){
+    cout << "Erreur, la période demandée est en dehors de la période mesurée\n"
+         << "Retour au menu principal " << endl;
+}
+
+void MauvaisesDates(){
+    cout << "Les dates données ne sont pas dans le bon ordre\n"
+         << "Retour au menu principal " << endl;
+}
 void menuQualiteAir() {
     cout << "1.1-Voir la qualite de l'air en un point\n"
-            "2.2-Voir la qualite de l'air en une zone" << endl;
+            "1.2-Voir la qualite de l'air en une zone\n"
+            "1.3-Retour au menu"<< endl;
 }
 
 void menuQualiteAirPoint() {

@@ -22,7 +22,9 @@ void menuQualiteAirPoint();
 void menuQualiteAirZone();
 void menuConsulterPurificateurs();
 void menuDemandeDates();
-
+void ErreurSaisie();
+void MauvaisesDates();
+void ErreurHorsMesure();
 
 void resultatQualiteEnPoint(int Qualite);
 void resultatListeCapteur(list<Capteur*> tousCapteurs);

@@ -40,7 +40,10 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     datef.tm_min = stoi(dateFin.substr(14, 2));
     datef.tm_sec = stoi(dateFin.substr(17, 2));
 
-
+    if(difftime(mktime(&datef),mktime(&dated))<0) {
+        MauvaisesDates();
+        return;
+    }
 
     Capteur* troiscapteursproches[3];
     troiscapteursproches[0]= new Capteur();
@@ -56,15 +59,15 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
             if (max(max(d1, d2), d3) == d1) {
                 d1 = dactuel;
                 troiscapteursproches[0] = (*it);
-                cout <<" d1 " << (**it).getId() << " " << dactuel<<endl;
+
             } else if (max(max(d1, d2), d3) == d2) {
                 d2 = dactuel;
                 troiscapteursproches[1] = (*it);
-                cout << " d2 "<<(**it).getId() << " " << dactuel<<endl;
+
             } else {
                 d3 = dactuel;
                 troiscapteursproches[2] = (*it);
-                cout << " d3 "<<(**it).getId() << " " << dactuel<<endl;
+
             }
         }
     }
@@ -74,7 +77,12 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     v3= determinerQualiteMoyenne(*troiscapteursproches[2],dated,datef);
     float vfinal = d1*v1 +d2*v2 +d3*v3;
     vfinal/=d1+d2+d3;
-    resultatQualiteEnPoint(vfinal);
+    if(vfinal!=0){
+
+        resultatQualiteEnPoint(vfinal);
+    } else {
+        ErreurHorsMesure();
+    }
 
 }
 
@@ -100,6 +108,10 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
     datef.tm_min = stoi(dateFin.substr(14, 2));
     datef.tm_sec = stoi(dateFin.substr(17, 2));
 
+    if(difftime(mktime(&datef),mktime(&dated))<0) {
+        MauvaisesDates();
+        return;
+    }
     Capteur capteuracomparer;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         if((*it)->getId()==idCapteur){
@@ -233,7 +245,6 @@ void listerCapteurs() {
 
 void listerPurificateurs() {
 
-    resultatListePurificateur(listPurificateurs);
 }
 
 int determinerQualiteMoyenne(Capteur monCapteur, tm dated, tm datef){
