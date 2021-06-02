@@ -15,17 +15,10 @@
 #include "Vue.h"
 #include <ctime>
 using namespace std;
-
-<<<<<<< Updated upstream
-void genererListeCapteurs(string dataPath);
-void genererListeMesures(string dataPath);
-=======
 /** Generer la liste des capteurs */
-void genererListeCapteurs();
-
+void genererListeCapteurs(string dataPath);
 /** Gnerer la liste des mesures */
-void genererListeMesures();
->>>>>>> Stashed changes
+void genererListeMesures(string dataPath);
 
 /** Calcul de qualité de l'air en un point
  *
