@@ -4,17 +4,20 @@ ECHO=echo
 CCFLAGS=-c
 CFLAGS= -Wall -ansi -pedantic -std=c++11
 DFLAGS = 
-OBJETS= Objets/Capteur.o Controller.o Objets/FournisseurPurificateur.o Objets/Mesure.o Model.o Objets/Purificateur.o Objets/Utilisateur.o Objets/UtilisateurGouvernement.o Objets/UtilisateurPrive.o Vue.o
-OBJETSTEST= Objets/Capteur.o TestMesuresCapteurs.o FournisseurPurificateur.o Mesure.o Model.o Purificateur.o Utilisateur.o UtilisateurGouvernement.o UtilisateurPrive.o Vue.o
+OBJETSC= Objets/Capteur.o Controller.o Objets/FournisseurPurificateur.o Objets/Mesure.o Model.o Objets/Purificateur.o Objets/Utilisateur.o Objets/UtilisateurGouvernement.o Objets/UtilisateurPrive.o Vue.o
+OBJETS= Capteur.o Controller.o FournisseurPurificateur.o Mesure.o Model.o Purificateur.o Utilisateur.o UtilisateurGouvernement.o UtilisateurPrive.o Vue.o
+OBJETSTESTC= Objets/Capteur.o TestMesuresCapteurs.o Objets/FournisseurPurificateur.o Objets/Mesure.o Model.o Objets/Purificateur.o Objets/Utilisateur.o Objets/UtilisateurGouvernement.o Objets/UtilisateurPrive.o Vue.o
+OBJETSTEST= Capteur.o TestMesuresCapteurs.o FournisseurPurificateur.o Mesure.o Model.o Purificateur.o Utilisateur.o UtilisateurGouvernement.o UtilisateurPrive.o Vue.o
+
 EXE=main
 
 debug: DFLAGS = -DMAP
 debug : $(EXE)
 
-$(EXE):$(OBJETS)
+$(EXE):$(OBJETSC)
 	$(GCC) -o $(EXE) $(OBJETS) $(CFLAGS)
 
-test :$(OBJETSTEST)
+test :$(OBJETSTESTC)
 	$(GCC) -o test $(OBJETSTEST) $(CFLAGS)
 %.o:%.cpp
 	$(ECHO) $(GCC) $(CCFLAGS) $<
