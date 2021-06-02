@@ -59,8 +59,8 @@ int main() {
 
 
 
-    genererListeCapteurs();
-    genererListeMesures();
+    genererListeCapteurs("Data/sensors.csv");
+    genererListeMesures("Data/measurements.csv");
     //lecture
     cout << "1: droits du gouv \n2: droit d'un utilisateur lambda\n3: droits fournisseur" << endl;
     cin >> droits;
