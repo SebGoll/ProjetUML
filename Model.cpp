@@ -91,7 +91,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
 
     if(listCapteurs.size()<=1){
         retourPasDeCapteurs();
-        return
+        return;
     }
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
@@ -127,8 +127,14 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
     int *qualitesenchaquemesure=new int[mesurescapteurPrincipal.size()];
     int i=0;
     for(list<Mesure*>::iterator it=mesurescapteurPrincipal.begin(); it!=mesurescapteurPrincipal.end();it++){
-        qualitesenchaquemesure[i]= determinerQualite(**it);
-        i++;
+        tm datemesure = (**it).getDate();
+
+        if(difftime(mktime(&datemesure),mktime(&dated))>=0 && (difftime(mktime(&datef),mktime(&datemesure))>=0)) {
+            qualitesenchaquemesure[i]= determinerQualite(**it);
+            cout << qualitesenchaquemesure[i] << " | " ;
+            i++;
+        }
+
     }
     int score;
     int scores[listCapteurs.size()][2];
