@@ -23,6 +23,7 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
 
     if(latitude<43 || latitude>48.6 || longitude<-2 || longitude>6.3){
         retourMauvaisesCoordonnees();
+        return;
     }
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
@@ -79,8 +80,15 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     v1= determinerQualiteMoyenne(*troiscapteursproches[0],dated,datef);
     v2= determinerQualiteMoyenne(*troiscapteursproches[1],dated,datef);
     v3= determinerQualiteMoyenne(*troiscapteursproches[2],dated,datef);
-    float vfinal = d1*v1 +d2*v2 +d3*v3;
-    vfinal/=d1+d2+d3;
+    float vfinal = (d2+d3)*v1 +(d1+d3)*v2 +(d2+d1)*v3;
+    vfinal/=(d1+d2+d3)*2;
+    if(d1==0){
+        resultatQualiteEnPoint(v1);
+    } else if(d2==0){
+        resultatQualiteEnPoint(v2);
+    } else if(d3==0){
+        resultatQualiteEnPoint(v3);
+    }
     if(vfinal!=0){
 
         resultatQualiteEnPoint(vfinal);
