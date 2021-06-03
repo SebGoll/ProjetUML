@@ -20,7 +20,7 @@ int compare(const void *a, const void *b){
 
 void QualiteAirPoint(float latitude, float longitude, string dateDebut, string dateFin) {
 
-    if(latitude<43 || latitude>48.6 || longitude<-2 || longitude>6.3){
+    if(latitude<43-0.01 || latitude>48.6+0.01  || longitude<-2-0.01  || longitude>6.3+0.01 ){ //valeurs epsilon de 0.01 obligatoir pour problèmes de pecision de floats
         retourMauvaisesCoordonnees();
         return;
     }
