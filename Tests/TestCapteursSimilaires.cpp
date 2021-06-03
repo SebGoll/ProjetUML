@@ -1,6 +1,7 @@
 
 #include "../Model.h"
 #include <iostream>
+#include <time.h>
 
 int droits;
 
@@ -11,6 +12,7 @@ void test3();
 void test4();
 void test5();
 void test6();
+void testPerformance();
 
 int main(){
 
@@ -21,6 +23,7 @@ int main(){
     test4();
     test5();
     test6();
+    testPerformance();
 
     return 0;
 }
@@ -84,4 +87,20 @@ void test6() {
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
     cout << "Resultat:" << endl;
     capteursSimilaires(2,  "2019-01-06 12:00:00","2019-01-01 12:00:00");
+}
+
+void testPerformance(){
+    cout << "==================================\nTest de performance : temps d'execution" << endl;
+    cout << "Resultat attendu:\nTemps pour le chargement des donnees < 3sec\nTemps d'execution de l'algorithme < 1sec" << endl;
+    clock_t start,mid,end;
+    start=clock();
+    genererListeCapteurs("Data/sensors.csv");
+    genererListeMesures("Data/measurements.csv");
+    mid=clock();
+    capteursSimilaires(50,  "2019-01-01 12:00:00","2019-12-31 12:00:00");
+    end=clock();
+    cout << "Resultat:" << endl;
+
+    cout<< "Temps de chargement des donnees: "<<float(mid-start)/CLOCKS_PER_SEC<<"s"<<endl;
+    cout<< "Temps d'execution de l'algorithme: "<< float(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
 }

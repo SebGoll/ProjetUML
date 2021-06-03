@@ -69,4 +69,12 @@ Test 6:
 Les dates ne sont pas dans le bon ordre
 
 Resultat attendu:
-Dates saisies incorrectes
+Les dates données ne sont pas dans le bon ordre
+
+**************************
+Test de performance:
+Indique le temps pour le remplissage des données et le calcule des similarité (sur les données complètes)
+
+Resultat attendu:
+Chargement des données < 3sec
+Algorithme < 1sec
