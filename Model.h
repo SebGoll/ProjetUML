@@ -14,8 +14,10 @@
 using namespace std;
 /** Generer la liste des capteurs */
 void genererListeCapteurs(string dataPath);
-/** Gnerer la liste des mesures */
+/** Generer la liste des mesures */
 void genererListeMesures(string dataPath);
+/** Detruit les listes des mesures et capteurs */
+void destructionListes();
 
 /** Calcul de qualité de l'air en un point
  *

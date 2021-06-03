@@ -15,15 +15,15 @@ void test8(); //Test qualité air Point: Point sur la limite maximale
 int droits=0;
 
 int main(){
-    //test0(); //ok
-    //test1(); //il faut pas afficher 'qualite air de ce point est 7'
-    //test2(); //ok
-    //test3(); //ok (affiche la même chose que pour test2)
-    //test4(); //ok
-    //test5(); //ok
-    //test6(); //probleme :  donne la moyenne des 3 plus proches mais il faut  LA qualité de l'air du capteur
-    //test7(); //ok
-    //test8(); //probleme: affiche 'erreur dehors de limite', mais 6.3 en longitude est censé fonctionner
+    //test0(); //ok : expecté: "qualité air = 7" | résultat: "qualité air = 7"
+    //test1(); //ok : expecté: "point inexistant" | résultat: "mauvaises coordonnées en dehors du périmètre de mesure"
+    //test2(); //ok : expecté: "pas de valeurs entre les deux dates" | résultat: "la période demandée en dehors de la période mesurée"
+    //test3(); //ok : expecté: "erreur: date de début pas atteint" | résultat: "la période demandée en dehors de la période mesurée"
+    //test4(); //ok : expecté: "erreur: date fin avant date début" | résultat: "les dates données pas dans le bon ordre"
+    //test5(); //ok : expecté: "qualité air = 7" | résultat: "qualité air = 7"
+    //test6(); //probleme :  expecté: "qualité air = 3" | résultat: "qualité air = 3 ET 5"
+    //test7(); //ok : expecté: "qualité air = 5" | résultat: "qualité air = 5"
+    //test8(); //probleme: expecté: "qualité air = 4" | résultat: "mauvaises coordonnées en dehors du périmètre de mesure" (longitude 6.3)
 }
 
 void test0(){ //Point normal

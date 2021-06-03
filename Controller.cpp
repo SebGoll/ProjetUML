@@ -252,7 +252,7 @@ int main() {
 
 
     cout << "fin du programme" << endl;
-
+    destructionListes();
     return 0;
 
 

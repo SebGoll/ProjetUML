@@ -95,6 +95,9 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     } else {
         ErreurHorsMesure();
     }
+    for(int i=0;i<3;i++){
+        delete troiscapteursproches[i];
+    }
 
 }
 
@@ -196,6 +199,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
         idsonly[i]=scores[i][0];
     }
     resultatCapteursSimilaires(scoreonly,idsonly,listCapteurs.size());
+    delete[] qualitesenchaquemesure;
 
 }
 
@@ -336,5 +340,14 @@ int determinerQualite(Mesure maMesure) {
         return 9;
     } else{
         return 10;
+    }
+}
+
+void destructionListes(){
+    for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
+        delete *it;
+    }
+    for(list<Mesure*>::iterator it=listMesures.begin(); it!=listMesures.end();it++){
+        delete *it;
     }
 }
