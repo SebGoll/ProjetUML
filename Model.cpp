@@ -82,16 +82,16 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     v3= determinerQualiteMoyenne(*troiscapteursproches[2],dated,datef);
     float vfinal = (d2+d3)*v1 +(d1+d3)*v2 +(d2+d1)*v3;
     vfinal/=(d1+d2+d3)*2;
-    if(d1==0){
-        resultatQualiteEnPoint(v1);
-    } else if(d2==0){
-        resultatQualiteEnPoint(v2);
-    } else if(d3==0){
-        resultatQualiteEnPoint(v3);
-    }
     if(vfinal!=0){
-
-        resultatQualiteEnPoint(vfinal);
+        if(d1==0){
+            resultatQualiteEnPoint(v1);
+        } else if(d2==0){
+            resultatQualiteEnPoint(v2);
+        } else if(d3==0){
+            resultatQualiteEnPoint(v3);
+        } else {
+            resultatQualiteEnPoint(vfinal);
+        }
     } else {
         ErreurHorsMesure();
     }
