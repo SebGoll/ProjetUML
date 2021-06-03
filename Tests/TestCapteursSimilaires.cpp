@@ -8,6 +8,9 @@ void test0();
 void test1();
 void test2();
 void test3();
+void test4();
+void test5();
+void test6();
 
 int main(){
 
@@ -15,6 +18,9 @@ int main(){
     test1();
     test2();
     test3();
+    test4();
+    test5();
+    test6();
 
     return 0;
 }
@@ -54,4 +60,28 @@ void test3(){
     capteursSimilaires(1,"2019-01-01 12:00:00","2019-01-06 12:00:00");
 }
 
+void test4() {
+    cout << "==================================\nTest 4 : capteur saisi inexistant" << endl;
+    cout << "Resultat attendu:\nCapteur saisi incorrect" << endl;
+    genererListeCapteurs("Data/DataSetTest-CapteursSimilaires/sensorsTest0.csv");
+    genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
+    cout << "Resultat:" << endl;
+    capteursSimilaires(7, "2019-01-01 12:00:00", "2019-01-06 12:00:00");
+}
+void test5() {
+    cout << "==================================\nTest 5 : Dates sans mesures" << endl;
+    cout << "Resultat attendu:\nDates saisies incorrectes" << endl;
+    genererListeCapteurs("Data/DataSetTest-CapteursSimilaires/sensorsTest0.csv");
+    genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
+    cout << "Resultat:" << endl;
+    capteursSimilaires(2, "2019-02-01 12:00:00", "2019-02-06 12:00:00");
+}
 
+void test6() {
+    cout << "==================================\nTest 6 : dates inversees" << endl;
+    cout << "Resultat attendu:\nLes dates donnees ne sont pas dans le bon ordre" << endl;
+    genererListeCapteurs("Data/DataSetTest-CapteursSimilaires/sensorsTest0.csv");
+    genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
+    cout << "Resultat:" << endl;
+    capteursSimilaires(2,  "2019-01-06 12:00:00","2019-01-01 12:00:00");
+}

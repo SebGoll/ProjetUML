@@ -97,10 +97,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
         retourPasDeCapteurs();
         return;
     }
-    if(idCapteur<0 || idCapteur>99){
-        retourCapteurInexistant();
-        return;
-    }
+
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
     time_t now = time(0);
@@ -126,24 +123,39 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
         return;
     }
     Capteur capteuracomparer;
+    bool capteurTrouve = false;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         if((*it)->getId()==idCapteur){
             capteuracomparer=*(*it);
+            capteurTrouve=true;
+            break;
         }
     }
+    if(!capteurTrouve){
+        retourCapteurInexistant();
+        return;
+    }
+
+
     list<Mesure*> mesurescapteurPrincipal =capteuracomparer.getMesures();
     int *qualitesenchaquemesure=new int[mesurescapteurPrincipal.size()];
     int i=0;
+    int scoreTotal=0;
     for(list<Mesure*>::iterator it=mesurescapteurPrincipal.begin(); it!=mesurescapteurPrincipal.end();it++){
         tm datemesure = (**it).getDate();
 
         if(difftime(mktime(&datemesure),mktime(&dated))>=0 && (difftime(mktime(&datef),mktime(&datemesure))>=0)) {
             qualitesenchaquemesure[i]= determinerQualite(**it);
-
+            scoreTotal+=qualitesenchaquemesure[i];
             i++;
         }
 
     }
+    if(scoreTotal==0){
+        ErreurHorsMesure();
+        return;
+    }
+
     int score;
     int scores[listCapteurs.size()][2];
     int j=0;

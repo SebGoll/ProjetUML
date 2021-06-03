@@ -49,3 +49,24 @@ Sensor1: 	0
 Sensor2:	45
 Sensor3:	45
 Sensor4:	45
+
+**************************
+Test 4:
+Un id de capteur inexistant (ex: id=7)
+
+Resultat attendu:
+Capteur saisi incorrect
+
+**************************
+Test 5:
+Un interval de date avec aucune mesure disponible
+
+Resultat attendu:
+Dates saisies incorrectes
+
+**************************
+Test 6:
+Les dates ne sont pas dans le bon ordre
+
+Resultat attendu:
+Dates saisies incorrectes

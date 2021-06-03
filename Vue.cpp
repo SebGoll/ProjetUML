@@ -51,12 +51,12 @@ void ErreurSaisie(){
 }
 
 void ErreurHorsMesure(){
-    cout << "Erreur, la période demandée est en dehors de la période mesurée\n"
+    cout << "Erreur, la periode demandee est en dehors de la periode mesuree\n"
          << "Retour au menu principal " << endl;
 }
 
 void MauvaisesDates(){
-    cout << "Les dates données ne sont pas dans le bon ordre\n"
+    cout << "Les dates donnees ne sont pas dans le bon ordre\n"
          << "Retour au menu principal " << endl;
 }
 void menuQualiteAir() {
