@@ -9,6 +9,7 @@ void test2(); //Test qualité air Point: Date erronée: pas de valeurs entre dé
 void test3(); //Test qualité air Point: Date erronée: date de debut pas atteint
 void test4(); //Test qualité air Point: Date erronée: date fin avant date début
 void test5(); //Test qualité air point: Date début et fin très éloignée
+void test6(); //Test qualité air Point: Point sur un capteur
 int droits=0;
 
 int main(){
@@ -18,6 +19,7 @@ int main(){
     //test3(); //ok (affiche la même chose que pour test2)
     //test4(); //ok
     //test5(); //ok
+    test6();
 }
 
 void test0(){ //Point normal
@@ -54,4 +56,10 @@ void test5(){ //Dates debut fin éloignées
     genererListeCapteurs("Data/DataSetTest-QualiteAirPoint/sensorTest0.csv");
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     QualiteAirPoint(45,5, "2018-01-01 12:00:00", "2021-02-20 12:00:00");
+}
+
+void test6(){ //Point normal
+    genererListeCapteurs("Data/DataSetTest-QualiteAirPoint/sensorTest1.csv");
+    genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest1.csv");
+    QualiteAirPoint(45,5.4, "2019-01-01 12:00:00", "2021-02-20 12:00:00");
 }
