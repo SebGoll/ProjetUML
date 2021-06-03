@@ -23,6 +23,7 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
 
     if(latitude<43 || latitude>48.6 || longitude<-2 || longitude>6.3){
         retourMauvaisesCoordonnees();
+        return;
     }
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
@@ -79,8 +80,15 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     v1= determinerQualiteMoyenne(*troiscapteursproches[0],dated,datef);
     v2= determinerQualiteMoyenne(*troiscapteursproches[1],dated,datef);
     v3= determinerQualiteMoyenne(*troiscapteursproches[2],dated,datef);
-    float vfinal = d1*v1 +d2*v2 +d3*v3;
-    vfinal/=d1+d2+d3;
+    float vfinal = (d2+d3)*v1 +(d1+d3)*v2 +(d2+d1)*v3;
+    vfinal/=(d1+d2+d3)*2;
+    if(d1==0){
+        resultatQualiteEnPoint(v1);
+    } else if(d2==0){
+        resultatQualiteEnPoint(v2);
+    } else if(d3==0){
+        resultatQualiteEnPoint(v3);
+    }
     if(vfinal!=0){
 
         resultatQualiteEnPoint(vfinal);
@@ -97,10 +105,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
         retourPasDeCapteurs();
         return;
     }
-    if(idCapteur<0 || idCapteur>99){
-        retourCapteurInexistant();
-        return;
-    }
+
     dateDebut.append(" 12:00:00");
     dateFin.append(" 12:00:00");
     time_t now = time(0);
@@ -126,24 +131,39 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
         return;
     }
     Capteur capteuracomparer;
+    bool capteurTrouve = false;
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         if((*it)->getId()==idCapteur){
             capteuracomparer=*(*it);
+            capteurTrouve=true;
+            break;
         }
     }
+    if(!capteurTrouve){
+        retourCapteurInexistant();
+        return;
+    }
+
+
     list<Mesure*> mesurescapteurPrincipal =capteuracomparer.getMesures();
     int *qualitesenchaquemesure=new int[mesurescapteurPrincipal.size()];
     int i=0;
+    int scoreTotal=0;
     for(list<Mesure*>::iterator it=mesurescapteurPrincipal.begin(); it!=mesurescapteurPrincipal.end();it++){
         tm datemesure = (**it).getDate();
 
         if(difftime(mktime(&datemesure),mktime(&dated))>=0 && (difftime(mktime(&datef),mktime(&datemesure))>=0)) {
             qualitesenchaquemesure[i]= determinerQualite(**it);
-
+            scoreTotal+=qualitesenchaquemesure[i];
             i++;
         }
 
     }
+    if(scoreTotal==0){
+        ErreurHorsMesure();
+        return;
+    }
+
     int score;
     int scores[listCapteurs.size()][2];
     int j=0;
@@ -192,12 +212,14 @@ void genererListeCapteurs(string dataPath){
     }
     listCapteurs.clear();
     while(fileToRead.peek()!=EOF){
+
         getline(fileToRead,id,';');
         getline(fileToRead,longitude,';');
         getline(fileToRead,latitude, ';');
-        fileToRead.ignore();
-        Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stof(longitude), stof(latitude));
 
+        fileToRead.ignore(1,'\n');
+
+        Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stof(longitude), stof(latitude));
         listCapteurs.push_back(c);
     }
     fileToRead.close();
@@ -223,7 +245,7 @@ void genererListeMesures(string dataPath){
         getline(fileToRead,id,';');
         getline(fileToRead,mesureType,';');
         getline(fileToRead,mesure[i],';');
-        fileToRead.ignore();
+        fileToRead.ignore(1,'\n');
         i++;
         if (i == 4){
             m = new Mesure(date, stof(mesure[0]),stof(mesure[1]),stof(mesure[2]),stof(mesure[3]) );
