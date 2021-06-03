@@ -247,7 +247,7 @@ void genererListeMesures(string dataPath){
         i++;
         if (i == 4){
             m = new Mesure(date, stof(mesure[0]),stof(mesure[1]),stof(mesure[2]),stof(mesure[3]) );
-            listMesures.push_back(m);
+
             int idCapteur = stoi(id.erase(0,toErase.length()));
             for (list<Capteur*>::iterator it=listCapteurs.begin();it!=listCapteurs.end();it++){
                 if ((*it)->getId() == idCapteur){
