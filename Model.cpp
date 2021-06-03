@@ -50,10 +50,7 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
         return;
     }
 
-    Capteur* troiscapteursproches[3];
-    troiscapteursproches[0]= new Capteur();
-    troiscapteursproches[1]= new Capteur();
-    troiscapteursproches[2]= new Capteur();
+    Capteur** troiscapteursproches = new Capteur*[3];
     float d1=1000,d2=1000,d3=1000;
     float dactuel;
 
@@ -95,10 +92,7 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     } else {
         ErreurHorsMesure();
     }
-    for(auto & troiscapteursproche : troiscapteursproches){
-        delete troiscapteursproche;
-    }
-
+    delete[] troiscapteursproches;
 }
 
 void capteursSimilaires(int idCapteur, string dateDebut, string dateFin){
@@ -347,7 +341,5 @@ void destructionListes(){
     for(list<Capteur*>::iterator it=listCapteurs.begin(); it!=listCapteurs.end();it++){
         delete *it;
     }
-    for(list<Mesure*>::iterator it=listMesures.begin(); it!=listMesures.end();it++){
-        delete *it;
-    }
+
 }
