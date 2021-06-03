@@ -1,0 +1,72 @@
+Le data set modifier inital comprend 5 capteurs (id de 0 à 4) comportant chacun 5 mesures (du 01/01/2019 au 05/01/2019)
+Les données ont donc ces valeurs: (en qualité de l'air)
+
+Jour de la mesure:	01	02	03	04	05
+=========================================
+	Sensor0:		5	5	5	5	5
+	Sensor1:		1	1	1	1	1
+	Sensor2:		1	3	5	7	9
+	Sensor3:		2	4	6	8	10
+	Sensor4:		9	7	5	3	1
+	
+	
+**************************
+Test 0:
+Un test avec un data set reduit mais sans particularité
+
+Resultat attendu(score en fonction des capteurs) en partant du capteur 2:
+Sensor0:	12
+Sensor1: 	1
+Sensor2:	0
+Sensor3:	5
+Sensor4:	24
+
+**************************
+Test 1:
+Un test où toutes les mesures sont identiques à celles du capteur 2:
+
+Resultat attendu(score en fonction des capteurs) en partant du capteur 2:
+Sensor0:	0
+Sensor1: 	0
+Sensor2:	0
+Sensor3:	0
+Sensor4:	0
+
+**************************
+Test 2:
+Un test ou un seul capteur est disponible dans la base de données
+
+Resultat attendu:
+Aucun capteur à comparer
+
+**************************
+Test 3:
+Un capteur tres different des autres (le capteur 1 et tous les autres capteurs avec des mesures à 10 (les valeurs des particules detecté seront mis à des valeurs extrème ex: 100000)))
+
+Resultat attendu:
+Sensor0:	45
+Sensor1: 	0
+Sensor2:	45
+Sensor3:	45
+Sensor4:	45
+
+**************************
+Test 4:
+Un id de capteur inexistant (ex: id=7)
+
+Resultat attendu:
+Capteur saisi incorrect
+
+**************************
+Test 5:
+Un interval de date avec aucune mesure disponible
+
+Resultat attendu:
+Dates saisies incorrectes
+
+**************************
+Test 6:
+Les dates ne sont pas dans le bon ordre
+
+Resultat attendu:
+Dates saisies incorrectes
