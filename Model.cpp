@@ -13,7 +13,6 @@
 using namespace std;
 
 list<Capteur*> listCapteurs;
-list<Mesure*> listMesures;
 
 int compare(const void *a, const void *b){
     return (  *((int*)a+1) - *((int*)b+1)  );
@@ -237,7 +236,6 @@ void genererListeMesures(string dataPath){
         cerr <<"Echec de l'ouverture du fichier";
         exit(1);
     }
-    listMesures.clear();
     while(fileToRead.peek()!=EOF){
         getline(fileToRead,date,';');
         getline(fileToRead,id,';');
@@ -247,7 +245,6 @@ void genererListeMesures(string dataPath){
         i++;
         if (i == 4){
             m = new Mesure(date, stof(mesure[0]),stof(mesure[1]),stof(mesure[2]),stof(mesure[3]) );
-
             int idCapteur = stoi(id.erase(0,toErase.length()));
             for (list<Capteur*>::iterator it=listCapteurs.begin();it!=listCapteurs.end();it++){
                 if ((*it)->getId() == idCapteur){
@@ -267,26 +264,12 @@ void QualiteAirPoint(double latitude, double longitude, string dateDebut, string
 
 
 void listerCapteurs() {
-
-
-
     resultatListeCapteur(listCapteurs);
-
-//    list<Capteur*>::iterator it = listCapteurs.begin();
-//    list<Mesure*> mm = (*it)->getMesures();
-//    cout << "Capteur" << (*it)->getId() << endl;
-//    int i = 0;
-//    for (Mesure *lol : mm) {
-//        i++;
-////        cout << "Mesures" << mm->getSo2() <<";"<< mm->getPm10() <<";" << mm->getO3() <<";"<< mm->getNo2() <<endl;
-//    }
-//    cout<<i<<endl;
-//    cout<< mm.size() <<endl;
 }
-
-void listerPurificateurs() {
-
-}
+//
+//void listerPurificateurs() {
+//
+//}
 
 int determinerQualiteMoyenne(Capteur monCapteur, tm dated, tm datef){
     list<Mesure*> mesmesures =monCapteur.getMesures();
