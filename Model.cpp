@@ -344,10 +344,10 @@ int determinerQualite(Mesure maMesure) {
 }
 
 void destructionListes(){
-    for(int i=0;i<listCapteurs.size();i++){
+    while(!listCapteurs.empty()){
        listCapteurs.pop_back();
     }
-    for(int i=0;i<listMesures.size();i++){
+    while(!listMesures.empty()){
         listMesures.pop_back();
     }
 }
