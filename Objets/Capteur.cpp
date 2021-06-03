@@ -16,7 +16,9 @@ Capteur::Capteur(){
 }
 
 Capteur::~Capteur() {
-
+    while(!this->mesures.empty()){
+        (this->mesures).pop_back();
+    }
 }
 
 

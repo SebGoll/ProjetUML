@@ -10,6 +10,8 @@ void test3(); //Test qualité air Point: Date erronée: date de debut pas attein
 void test4(); //Test qualité air Point: Date erronée: date fin avant date début
 void test5(); //Test qualité air point: Date début et fin très éloignée
 void test6(); //Test qualité air Point: Point sur un capteur
+void test7(); //Test qualité air Point: Point sur la limite minimale
+void test8(); //Test qualité air Point: Point sur la limite maximale
 int droits=0;
 
 int main(){
@@ -19,7 +21,9 @@ int main(){
     //test3(); //ok (affiche la même chose que pour test2)
     //test4(); //ok
     //test5(); //ok
-    test6();
+    //test6(); //probleme :  donne la moyenne des 3 plus proches mais il faut  LA qualité de l'air du capteur
+    //test7(); //ok
+    //test8(); //probleme: affiche 'erreur dehors de limite', mais 6.3 en longitude est censé fonctionner
 }
 
 void test0(){ //Point normal
@@ -58,8 +62,20 @@ void test5(){ //Dates debut fin éloignées
     QualiteAirPoint(45,5, "2018-01-01 12:00:00", "2021-02-20 12:00:00");
 }
 
-void test6(){ //Point normal
+void test6(){ //Point sur un capteur
     genererListeCapteurs("Data/DataSetTest-QualiteAirPoint/sensorTest1.csv");
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest1.csv");
     QualiteAirPoint(45,5.4, "2019-01-01 12:00:00", "2021-02-20 12:00:00");
+}
+
+void test7(){ //Point sur la limite minimale
+    genererListeCapteurs("Data/DataSetTest-QualiteAirPoint/sensorTest2.csv");
+    genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest2.csv");
+    QualiteAirPoint(43,-2, "2018-01-01 12:00:00", "2021-02-20 12:00:00");
+}
+
+void test8(){ //Point sur la limite maximale
+    genererListeCapteurs("Data/DataSetTest-QualiteAirPoint/sensorTest2.csv");
+    genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest2.csv");
+    QualiteAirPoint(48.6,6.3, "2018-01-01 12:00:00", "2021-02-20 12:00:00");
 }

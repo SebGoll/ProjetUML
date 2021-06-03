@@ -216,12 +216,14 @@ void genererListeCapteurs(string dataPath){
     }
     listCapteurs.clear();
     while(fileToRead.peek()!=EOF){
+
         getline(fileToRead,id,';');
         getline(fileToRead,longitude,';');
         getline(fileToRead,latitude, ';');
-        fileToRead.ignore();
-        Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stof(longitude), stof(latitude));
 
+        fileToRead.ignore(1,'\n');
+
+        Capteur * c = new Capteur(stoi(id.erase(0,toErase.length())),stof(longitude), stof(latitude));
         listCapteurs.push_back(c);
     }
     fileToRead.close();
@@ -247,7 +249,7 @@ void genererListeMesures(string dataPath){
         getline(fileToRead,id,';');
         getline(fileToRead,mesureType,';');
         getline(fileToRead,mesure[i],';');
-        fileToRead.ignore();
+        fileToRead.ignore(1,'\n');
         i++;
         if (i == 4){
             m = new Mesure(date, stof(mesure[0]),stof(mesure[1]),stof(mesure[2]),stof(mesure[3]) );
