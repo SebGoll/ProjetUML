@@ -136,6 +136,8 @@ void resultatCapteursSimilaires( int * scores,int *ids,int taille){
         }
         cout << ids[i] <<"            " << scores[i] << endl;
     }
+    delete[] ids;
+    delete[] scores;
 
 }
 
