@@ -239,7 +239,9 @@ int main() {
 
 
         } else if (val == 3 && droits == 1) {
-            listerPurificateurs();
+//            listerPurificateurs();
+            cout << "appel a model : liste des Purificateurs" << endl;
+
             menuConsulterPurificateurs(/*Liste Des Purificateurs*/);
             cin >> lecture;
             if (lecture == "aucun") {

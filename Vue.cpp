@@ -15,7 +15,7 @@ using namespace std;
 
 void mainMenu() {
 
-    cout << "Menu" << endl;
+    cout << "\nMenu" << endl;
     switch (droits) {
         case 1:
 
@@ -45,49 +45,49 @@ void mainMenu() {
 }
 
 void ErreurSaisie(){
-    cout << "Erreur lors de la saisie\n"
-         << "Retour au menu principal " << endl;
+    cout << "\nErreur lors de la saisie\n"
+         << "Retour au menu principal \n" << endl;
 
 }
 
 void ErreurHorsMesure(){
-    cout << "Erreur, la periode demandee est en dehors de la periode mesuree\n"
-         << "Retour au menu principal " << endl;
+    cout << "\nErreur, la periode demandee est en dehors de la periode mesuree\n"
+         << "Retour au menu principal \n" << endl;
 }
 
 void MauvaisesDates(){
-    cout << "Les dates donnees ne sont pas dans le bon ordre\n"
-         << "Retour au menu principal " << endl;
+    cout << "\nLes dates donnees ne sont pas dans le bon ordre\n"
+         << "Retour au menu principal \n" << endl;
 }
 void menuQualiteAir() {
-    cout << "1.1-Voir la qualite de l'air en un point\n"
+    cout << "\n1.1-Voir la qualite de l'air en un point\n"
             "1.2-Voir la qualite de l'air en une zone(pas implemente)\n"
             "1.3-Retour au menu"<< endl;
 }
 
 void menuQualiteAirPoint() {
     cout
-            << "Inserer la longitude et la latitude, ainsi que la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):"
+            << "\nInserer la longitude (entre 40 et 47) et la latitude (entre -3 et 6), ainsi que la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):"
             << endl;
 }
 
 void menuQualiteAirZone() {
     cout
-            << "Inserer la longitude, la latitude et le rayon de la zone (en ..), ainsi que la date de debut et la date de fin de la periode a moyenner:"
+            << "\nInserer la longitude, la latitude et le rayon de la zone (en ..), ainsi que la date de debut et la date de fin de la periode a moyenner:"
             << endl;
 }
 
 void menuDemandeDates() {
-    cout << "Inserer la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):" << endl;
+    cout << "\nInserer la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):" << endl;
 }
 
 void menuConsulterCapteur() {
-    cout << "Entrez le numero du capteur  a analyser\n(saisissez \"aucun\" pour retourner au menu):" << endl;
+    cout << "\nEntrez le numero du capteur  a analyser\n(saisissez \"aucun\" pour retourner au menu):" << endl;
 }
 
 
 void menuConsulterDetailsCapteur() {
-    cout << "Menu" << endl;
+    cout << "\nMenu" << endl;
     cout << "2.1-Consulter les capteurs similaires\n"
             "2.2-Voir si un capteur est défectueux(pas implemente)" << endl;
 }
@@ -95,35 +95,19 @@ void menuConsulterDetailsCapteur() {
 
 
 void menuConsulterPurificateurs() {
-    cout << "Entrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
+    cout << "\nEntrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
             << endl;
 }
 
-/*
-void menuConsulterDetailPurificateur(Purificateur p){
-    cout<<"Rayon d'influence du capteur"<<endl;
-    // cout<<p.calculRayon()<<endl;
-}
-*/
-
-
 void resultatQualiteEnPoint(int Qualite) {
-    cout << "La qualite de l'air en ce point est de : " << Qualite << endl;
+    cout << "\nLa qualite de l'air en ce point est de : " << Qualite << endl;
 
 }
 
 void resultatListeCapteur(list<Capteur*> tousCapteurs){
-    cout << "Liste des capteurs :" << endl;
+    cout << "\nListe des capteurs :" << endl;
     for (list<Capteur*>::iterator it=tousCapteurs.begin();it!=tousCapteurs.end();it++){
         cout << (*(*it)) <<  endl;
-    }
-    cout << endl <<endl;
-}
-void resultatListePurificateur(list<Purificateur*> tousPurificateurs){
-    cout << "Liste des purificateurs :" << endl;
-    for (list<Purificateur*>::iterator it=tousPurificateurs.begin();it!=tousPurificateurs.end();it++){
-        cout << **it <<  endl;
-
     }
     cout << endl <<endl;
 }
@@ -143,17 +127,17 @@ void resultatCapteursSimilaires( int * scores,int *ids,int taille){
 
 
 void retourPasDeCapteurs(){
-    cout << "Aucun Capteur a comparer\n"
+    cout << "\nAucun Capteur a comparer\n"
          << "Retour au menu principal " << endl;
 }
 
 void retourMauvaisesCoordonnees(){
-    cout << "Mauvaises coordonnees, en dehors du perimetre mesure\n"
+    cout << "\nMauvaises coordonnees, en dehors du perimetre mesure\n"
          << "Retour au menu principal " << endl;
 }
 
 void retourCapteurInexistant(){
-    cout << "L'id renseigne ne correspond a aucun capteur\n"
+    cout << "\nL'id renseigne ne correspond a aucun capteur\n"
          << "Retour au menu principal " << endl;
 }
 
