@@ -23,7 +23,7 @@ Sensor4:	24
 
 **************************
 Test 1:
-un test où toutes les mesures sont identiques à celles du capteur 2:
+Un test où toutes les mesures sont identiques à celles du capteur 2:
 
 Resultat attendu(score en fonction des capteurs) en partant du capteur 2:
 Sensor0:	0
@@ -31,3 +31,21 @@ Sensor1: 	0
 Sensor2:	0
 Sensor3:	0
 Sensor4:	0
+
+**************************
+Test 2:
+Un test ou un seul capteur est disponible dans la base de données
+
+Resultat attendu:
+Aucun capteur à comparer
+
+**************************
+Test 3:
+Un capteur tres different des autres (le capteur 1 et tous les autres capteurs avec des mesures à 10 (les valeurs des particules detecté seront mis à des valeurs extrème ex: 100000)))
+
+Resultat attendu:
+Sensor0:	45
+Sensor1: 	0
+Sensor2:	45
+Sensor3:	45
+Sensor4:	45
