@@ -95,8 +95,8 @@ void QualiteAirPoint(float latitude, float longitude, string dateDebut, string d
     } else {
         ErreurHorsMesure();
     }
-    for(int i=0;i<3;i++){
-        delete troiscapteursproches[i];
+    for(auto & troiscapteursproche : troiscapteursproches){
+        delete troiscapteursproche;
     }
 
 }
