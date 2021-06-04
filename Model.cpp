@@ -14,7 +14,6 @@
 using namespace std;
 
 list<Capteur *> listCapteurs;
-list<Mesure *> listMesures;
 
 int compare(const void *a, const void *b) {
     return (*((int *) a + 1) - *((int *) b + 1));
@@ -251,7 +250,6 @@ void genererListeMesures(string dataPath) {
         i++;
         if (i == 4) {
             m = new Mesure(date, stof(mesure[0]), stof(mesure[1]), stof(mesure[2]), stof(mesure[3]));
-            listMesures.push_back(m);
             int idCapteur = stoi(id.erase(0, toErase.length()));
             for (list<Capteur *>::iterator it = listCapteurs.begin(); it != listCapteurs.end(); it++) {
                 if ((*it)->getId() == idCapteur) {
@@ -330,9 +328,6 @@ int determinerQualite(Mesure maMesure) {
 void destructionListes() {
     for (list<Capteur *>::iterator it = listCapteurs.begin(); it != listCapteurs.end(); it++) {
         delete *it;
-    }
-    for (list<Mesure *>::iterator m = listMesures.begin(); m != listMesures.end(); m++) {
-        delete *m;
     }
 
 }

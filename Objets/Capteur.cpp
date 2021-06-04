@@ -16,7 +16,11 @@ Capteur::Capteur() {
 }
 
 Capteur::~Capteur() {
-
+    while (!this->mesures.empty()) {
+        delete mesures.front();
+        mesures.pop_front();
+    }
+    mesures.clear();
 }
 
 
