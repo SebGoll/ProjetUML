@@ -67,13 +67,13 @@ void menuQualiteAir() {
 
 void menuQualiteAirPoint() {
     cout
-            << "\nInserer la latitude (entre 43 à 48.6) et la longitude (entre -2 à 6.3), ainsi que la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):"
+            << "\nInserer la latitude (entre 43 a 48.6) et la longitude (entre -2 a 6.3), ainsi que la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):"
             << endl;
 }
 
 void menuQualiteAirZone() {
     cout
-            << "\nInserer la latitude (entre 43 à 48.6), la longitude (entre -2 à 6.3) et le rayon de la zone (en km)\n, ainsi que la date de debut et la date de fin de la periode a moyenner:"
+            << "\nInserer la latitude (entre 43 a 48.6), la longitude (entre -2 a 6.3) et le rayon de la zone (en km)\n, ainsi que la date de debut et la date de fin de la periode a moyenner:"
             << endl;
 }
 
@@ -89,7 +89,7 @@ void menuConsulterCapteur() {
 void menuConsulterDetailsCapteur() {
     cout << "\nMenu" << endl;
     cout << "2.1-Consulter les capteurs similaires\n"
-            "2.2-Voir si un capteur est défectueux(pas implemente)" << endl;
+            "2.2-Voir si un capteur est defectueux(pas implemente)" << endl;
 }
 
 
