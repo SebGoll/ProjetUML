@@ -35,6 +35,8 @@ void test0(){
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
     cout<<"Resultat:"<<endl;
     capteursSimilaires(2,"2019-01-01 12:00:00","2019-01-06 12:00:00");
+    destructionListes();
+
 
 }
 
@@ -45,6 +47,8 @@ void test1(){
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest1.csv");
     cout<<"Resultat:"<<endl;
     capteursSimilaires(2,"2019-01-01 12:00:00","2019-01-06 12:00:00");
+    destructionListes();
+
 }
 void test2(){
     cout<<"==================================\nTest 2 : un seul capteur"<<endl;
@@ -53,6 +57,8 @@ void test2(){
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest2.csv");
     cout<<"Resultat:"<<endl;
     capteursSimilaires(2,"2019-01-01 12:00:00","2019-01-06 12:00:00");
+    destructionListes();
+
 }
 void test3(){
     cout<<"==================================\nTest 2 : capteurs très different (valeurs extrèmes)"<<endl;
@@ -61,6 +67,8 @@ void test3(){
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest3.csv");
     cout<<"Resultat:"<<endl;
     capteursSimilaires(1,"2019-01-01 12:00:00","2019-01-06 12:00:00");
+    destructionListes();
+
 }
 
 void test4() {
@@ -70,6 +78,8 @@ void test4() {
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
     cout << "Resultat:" << endl;
     capteursSimilaires(7, "2019-01-01 12:00:00", "2019-01-06 12:00:00");
+    destructionListes();
+
 }
 void test5() {
     cout << "==================================\nTest 5 : Dates sans mesures" << endl;
@@ -78,6 +88,8 @@ void test5() {
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
     cout << "Resultat:" << endl;
     capteursSimilaires(2, "2019-02-01 12:00:00", "2019-02-06 12:00:00");
+    destructionListes();
+
 }
 
 void test6() {
@@ -87,6 +99,8 @@ void test6() {
     genererListeMesures("Data/DataSetTest-CapteursSimilaires/measurementsTest0.csv");
     cout << "Resultat:" << endl;
     capteursSimilaires(2,  "2019-01-06 12:00:00","2019-01-01 12:00:00");
+    destructionListes();
+
 }
 
 void testPerformance(){
@@ -103,4 +117,6 @@ void testPerformance(){
 
     cout<< "Temps de chargement des donnees: "<<float(mid-start)/CLOCKS_PER_SEC<<"s"<<endl;
     cout<< "Temps d'execution de l'algorithme: "<< float(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+    destructionListes();
+
 }

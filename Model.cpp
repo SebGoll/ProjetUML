@@ -160,6 +160,7 @@ void capteursSimilaires(int idCapteur, string dateDebut, string dateFin) {
     }
     if (scoreTotal == 0) {
         ErreurHorsMesure();
+        delete[] qualitesenchaquemesure;
         return;
     }
 

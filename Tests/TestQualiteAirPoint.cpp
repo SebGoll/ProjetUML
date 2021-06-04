@@ -35,6 +35,8 @@ void test0(){ //Point normal
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     cout<<"Resultat:";
     QualiteAirPoint(45,5, "2020-01-01 12:00:00", "2021-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test1(){ //Point inexistant
@@ -44,6 +46,8 @@ void test1(){ //Point inexistant
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     cout<<"Resultat:";
     QualiteAirPoint(49,8, "2019-01-01 12:00:00", "2021-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test2(){ //Pas de valeurs entre date début et date fin
@@ -53,6 +57,8 @@ void test2(){ //Pas de valeurs entre date début et date fin
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     cout<<"Resultat:";
     QualiteAirPoint(45,5, "2021-01-01 12:00:00", "2021-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test3(){ //Date debut pas encore atteint
@@ -62,6 +68,8 @@ void test3(){ //Date debut pas encore atteint
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     cout<<"Resultat:";
     QualiteAirPoint(45,5, "2021-01-01 12:00:00", "2022-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test4(){ //Date fin avant date début
@@ -71,6 +79,8 @@ void test4(){ //Date fin avant date début
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     cout<<"Resultat:";
     QualiteAirPoint(45,5, "2020-01-01 12:00:00", "2019-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test5(){ //Dates debut fin éloignées
@@ -80,6 +90,8 @@ void test5(){ //Dates debut fin éloignées
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest0.csv");
     cout<<"Resultat:";
     QualiteAirPoint(45,5, "2018-01-01 12:00:00", "2021-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test6(){ //Point sur un capteur
@@ -89,6 +101,8 @@ void test6(){ //Point sur un capteur
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest1.csv");
     cout<<"Resultat:";
     QualiteAirPoint(45,5.4, "2019-01-01 12:00:00", "2021-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test7(){ //Point sur la limite minimale
@@ -98,6 +112,8 @@ void test7(){ //Point sur la limite minimale
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest2.csv");
     cout<<"Resultat:";
     QualiteAirPoint(43,-2, "2018-01-01 12:00:00", "2021-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void test8(){ //Point sur la limite maximale
@@ -107,6 +123,8 @@ void test8(){ //Point sur la limite maximale
     genererListeMesures("Data/DataSetTest-QualiteAirPoint/measureTest2.csv");
     cout<<"Resultat:";
     QualiteAirPoint(48.6,6.3, "2018-01-01 12:00:00", "2021-02-20 12:00:00");
+    destructionListes();
+
 }
 
 void testPerformance(){
@@ -123,4 +141,6 @@ void testPerformance(){
 
     cout<< "Temps de chargement des donnees: "<<float(mid-start)/CLOCKS_PER_SEC<<"s"<<endl;
     cout<< "Temps d'execution de l'algorithme: "<< float(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+    destructionListes();
+
 }
