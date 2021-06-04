@@ -264,10 +264,7 @@ void genererListeMesures(string dataPath) {
     fileToRead.close();
 }
 
-void QualiteAirPoint(double latitude, double longitude, string dateDebut, string dateFin) {
-    resultatQualiteEnPoint(0);
 
-}
 
 
 void listerCapteurs() {
