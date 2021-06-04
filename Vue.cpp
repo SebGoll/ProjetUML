@@ -89,7 +89,7 @@ void menuConsulterCapteur() {
 void menuConsulterDetailsCapteur() {
     cout << "\nMenu" << endl;
     cout << "2.1-Consulter les capteurs similaires\n"
-            "2.2-Voir si un capteur est défectueux(pas implemente)" << endl;
+            "2.2-Voir si un capteur est defectueux(pas implemente)" << endl;
 }
 
 
