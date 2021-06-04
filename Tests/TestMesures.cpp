@@ -67,24 +67,24 @@ Mesure *testConstrtm() {
     return ptrM;
 }
 
-void testAffichage(Mesure *ptrM){
-    cout<<*ptrM<<endl;
+void testAffichage(Mesure *ptrM) {
+    cout << *ptrM << endl;
 
 }
 
-void testDestructionMesure(Mesure *ptrM){
+void testDestructionMesure(Mesure *ptrM) {
     delete ptrM;
-    cout<<"Destruction d'une mesure"<<endl;
+    cout << "Destruction d'une mesure" << endl;
 }
 
-void testModifParam(Mesure *ptrM){
+void testModifParam(Mesure *ptrM) {
     ptrM->setO3(100);
     ptrM->setNo2(100);
     ptrM->setPm10(100);
     ptrM->setPm10(100);
     time_t t = time(NULL);
     tm t2 = *localtime(&t);
-    string dateString="1919-05-30 14:35:25";
+    string dateString = "1919-05-30 14:35:25";
     t2.tm_year = stoi(dateString.substr(0, 4)) - 1900;
     t2.tm_mon = stoi(dateString.substr(5, 2)) - 1;
     t2.tm_mday = stoi(dateString.substr(8, 2));

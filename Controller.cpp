@@ -8,14 +8,12 @@
 #include "Vue.h"
 #include "Model.h"
 #include <sstream>
+
 using namespace std;
 int droits;
 
 
-
-
-
-bool isFloat( const string& s ) {
+bool isFloat(const string &s) {
     std::istringstream iss(s);
     float f;
     iss >> noskipws >> f; // noskipws considers leading whitespace invalid
@@ -23,40 +21,37 @@ bool isFloat( const string& s ) {
     return iss.eof() && !iss.fail();
 }
 
-bool isInteger(const string & s)
-{
-    if(s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+'))) return false;
+bool isInteger(const string &s) {
+    if (s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+'))) return false;
 
-    char * p;
+    char *p;
     strtol(s.c_str(), &p, 10);
 
     return (*p == 0);
 }
 
-bool isDate(const string & s){
-    if(s.empty() || s.size()!=10) return false;
-    string a = s.substr(0,4);
-    string m = s.substr(5,2);
-    string j = s.substr(8,2);
-    char * p;
-    char * p2;
-    char * p3;
+bool isDate(const string &s) {
+    if (s.empty() || s.size() != 10) return false;
+    string a = s.substr(0, 4);
+    string m = s.substr(5, 2);
+    string j = s.substr(8, 2);
+    char *p;
+    char *p2;
+    char *p3;
     strtol(a.c_str(), &p, 10);
     strtol(m.c_str(), &p2, 10);
     strtol(a.c_str(), &p3, 10);
     if (!(*p == 0 && *p2 == 0 && *p3 == 0)) return false;
-    int ai,mi,ji;
-    ai=stoi(a);
-    mi=stoi(m);
-    ji=stoi(j);
+    int ai, mi, ji;
+    ai = stoi(a);
+    mi = stoi(m);
+    ji = stoi(j);
 
-    return (2000<ai && ai<2500 && 0<mi && mi<13 && 0<ji && ji<32 );
+    return (2000 < ai && ai < 2500 && 0 < mi && mi < 13 && 0 < ji && ji < 32);
 }
 
 
 int main() {
-
-
 
 
     genererListeCapteurs("Data/sensors.csv");
@@ -95,7 +90,7 @@ int main() {
                 menuQualiteAirPoint();
                 cin >> lecture;
 
-                if(isFloat(lecture)==1){
+                if (isFloat(lecture) == 1) {
                     latitude = stof(lecture);
 
                 } else {
@@ -103,7 +98,7 @@ int main() {
                     continue;
                 }
                 cin >> lecture;
-                if(isFloat(lecture)==1){
+                if (isFloat(lecture) == 1) {
                     longitude = stof(lecture);
 
                 } else {
@@ -112,22 +107,22 @@ int main() {
                 }
                 cin >> lecture;
 
-                if(isDate(lecture)==1) {
+                if (isDate(lecture) == 1) {
                     datedebut = lecture;
-                }else{
+                } else {
 
                     ErreurSaisie();
                     continue;
                 }
                 cin >> lecture;
-                if(isDate(lecture)==1) {
+                if (isDate(lecture) == 1) {
                     datefin = lecture;
-                }else{
+                } else {
 
                     ErreurSaisie();
                     continue;
                 }
-                QualiteAirPoint(latitude,longitude,datedebut,datefin);
+                QualiteAirPoint(latitude, longitude, datedebut, datefin);
                 val = 1;
 
 
@@ -136,7 +131,7 @@ int main() {
                 menuQualiteAirZone();
                 cin >> lecture;
 
-                if(isFloat(lecture)==1){
+                if (isFloat(lecture) == 1) {
                     latitude = stof(lecture);
 
                 } else {
@@ -144,7 +139,7 @@ int main() {
                     continue;
                 }
                 cin >> lecture;
-                if(isFloat(lecture)==1){
+                if (isFloat(lecture) == 1) {
                     longitude = stof(lecture);
 
                 } else {
@@ -153,7 +148,7 @@ int main() {
                 }
 
                 cin >> lecture;
-                if(isFloat(lecture)==1){
+                if (isFloat(lecture) == 1) {
                     rayon = stof(lecture);
 
                 } else {
@@ -161,17 +156,17 @@ int main() {
                     continue;
                 }
                 cin >> lecture;
-                if(isDate(lecture)==1) {
+                if (isDate(lecture) == 1) {
                     datedebut = lecture;
-                }else{
+                } else {
 
                     ErreurSaisie();
                     continue;
                 }
                 cin >> lecture;
-                if(isDate(lecture)==1) {
+                if (isDate(lecture) == 1) {
                     datefin = lecture;
-                }else{
+                } else {
 
                     ErreurSaisie();
                     continue;
@@ -188,7 +183,7 @@ int main() {
             if (lecture == "aucun") {
                 continue;
             }
-            if(isInteger(lecture)==0){
+            if (isInteger(lecture) == 0) {
                 ErreurSaisie();
                 continue;
             }
@@ -205,22 +200,22 @@ int main() {
                 menuDemandeDates();
                 cin >> lecture;
 
-                if(isDate(lecture)==1) {
+                if (isDate(lecture) == 1) {
                     datedebut = lecture;
-                }else{
+                } else {
 
                     ErreurSaisie();
                     continue;
                 }
                 cin >> lecture;
-                if(isDate(lecture)==1) {
+                if (isDate(lecture) == 1) {
                     datefin = lecture;
-                }else{
+                } else {
 
                     ErreurSaisie();
                     continue;
                 }
-                capteursSimilaires(idcapteur,datedebut,datefin);
+                capteursSimilaires(idcapteur, datedebut, datefin);
 
                 val = 2;
 

@@ -45,14 +45,14 @@ public:
     void setPm10(float pm10);
 
     //Surchages d'operateurs
-    friend ostream & operator << (ostream & flux, const Mesure & m);
+    friend ostream &operator<<(ostream &flux, const Mesure &m);
 
     //Contructeurs/Destructeurs
     Mesure();
 
     Mesure(tm date, float o3, float no2, float so2, float pm10);
 
-    Mesure(const string& date, float o3, float no2, float so2, float pm10);
+    Mesure(const string &date, float o3, float no2, float so2, float pm10);
 
     virtual ~Mesure();
     //PRIVE
@@ -65,7 +65,6 @@ protected:
     float no2;
     float so2;
     float pm10;
-
 
 
 };

@@ -12,7 +12,6 @@ using namespace std;
 #include <list>
 
 
-
 void mainMenu() {
 
     cout << "\nMenu" << endl;
@@ -44,25 +43,26 @@ void mainMenu() {
 
 }
 
-void ErreurSaisie(){
+void ErreurSaisie() {
     cout << "\nErreur lors de la saisie\n"
          << "Retour au menu principal \n" << endl;
 
 }
 
-void ErreurHorsMesure(){
+void ErreurHorsMesure() {
     cout << "\nErreur, la periode demandee est en dehors de la periode mesuree\n"
          << "Retour au menu principal \n" << endl;
 }
 
-void MauvaisesDates(){
+void MauvaisesDates() {
     cout << "\nLes dates donnees ne sont pas dans le bon ordre\n"
          << "Retour au menu principal \n" << endl;
 }
+
 void menuQualiteAir() {
     cout << "\n1.1-Voir la qualite de l'air en un point\n"
             "1.2-Voir la qualite de l'air en une zone(pas implemente)\n"
-            "1.3-Retour au menu"<< endl;
+            "1.3-Retour au menu" << endl;
 }
 
 void menuQualiteAirPoint() {
@@ -93,9 +93,9 @@ void menuConsulterDetailsCapteur() {
 }
 
 
-
 void menuConsulterPurificateurs() {
-    cout << "\nEntrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
+    cout
+            << "\nEntrez le numero du purificateur dont la zone d'influence doit etre calculee \n(saisissez \"aucun\" pour retourner au menu):"
             << endl;
 }
 
@@ -104,21 +104,21 @@ void resultatQualiteEnPoint(int Qualite) {
 
 }
 
-void resultatListeCapteur(list<Capteur*> tousCapteurs){
+void resultatListeCapteur(list<Capteur *> tousCapteurs) {
     cout << "\nListe des capteurs :" << endl;
-    for (list<Capteur*>::iterator it=tousCapteurs.begin();it!=tousCapteurs.end();it++){
-        cout << (*(*it)) <<  endl;
+    for (list<Capteur *>::iterator it = tousCapteurs.begin(); it != tousCapteurs.end(); it++) {
+        cout << (*(*it)) << endl;
     }
-    cout << endl <<endl;
+    cout << endl << endl;
 }
 
-void resultatCapteursSimilaires( int * scores,int *ids,int taille){
-    cout << "id | score de difference"  << endl;
-    for(int i =0;i< taille;i++){
-        if(ids[i]/10==0){
-            cout<<" ";
+void resultatCapteursSimilaires(int *scores, int *ids, int taille) {
+    cout << "id | score de difference" << endl;
+    for (int i = 0; i < taille; i++) {
+        if (ids[i] / 10 == 0) {
+            cout << " ";
         }
-        cout << ids[i] <<"            " << scores[i] << endl;
+        cout << ids[i] << "            " << scores[i] << endl;
     }
     delete[] ids;
     delete[] scores;
@@ -126,17 +126,17 @@ void resultatCapteursSimilaires( int * scores,int *ids,int taille){
 }
 
 
-void retourPasDeCapteurs(){
+void retourPasDeCapteurs() {
     cout << "\nAucun Capteur a comparer\n"
          << "Retour au menu principal " << endl;
 }
 
-void retourMauvaisesCoordonnees(){
+void retourMauvaisesCoordonnees() {
     cout << "\nMauvaises coordonnees, en dehors du perimetre mesure\n"
          << "Retour au menu principal " << endl;
 }
 
-void retourCapteurInexistant(){
+void retourCapteurInexistant() {
     cout << "\nL'id renseigne ne correspond a aucun capteur\n"
          << "Retour au menu principal " << endl;
 }
