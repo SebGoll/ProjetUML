@@ -67,13 +67,13 @@ void menuQualiteAir() {
 
 void menuQualiteAirPoint() {
     cout
-            << "\nInserer la longitude (entre 40 et 47) et la latitude (entre -3 et 6), ainsi que la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):"
+            << "\nInserer la latitude (entre 43 à 48.6) et la longitude (entre -2 à 6.3), ainsi que la date de debut et la date de fin de la periode a moyenner (aaaa-mm-jj):"
             << endl;
 }
 
 void menuQualiteAirZone() {
     cout
-            << "\nInserer la longitude, la latitude et le rayon de la zone (en ..), ainsi que la date de debut et la date de fin de la periode a moyenner:"
+            << "\nInserer la latitude (entre 43 à 48.6), la longitude (entre -2 à 6.3) et le rayon de la zone (en km)\n, ainsi que la date de debut et la date de fin de la periode a moyenner:"
             << endl;
 }
 
